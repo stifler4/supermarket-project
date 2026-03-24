@@ -1,0 +1,755 @@
+/* =========================================
+   DESIGN TOKENS & VARIABLES
+   These are global settings (colors, fonts, sizes). 
+   Changing these values updates the whole website automatically.
+   ========================================= */
+:root {
+  --brand-primary: #111111; /* Main text and dark background color */
+  --brand-secondary: #c5a059; /* Accent color (gold/yellow) for buttons/highlights */
+  --brand-bg: #f9f9f9; /* Background color for the header */
+  --color-bg-body: #f0f2f5; /* Background color for the main page */
+  --color-text-muted: #666666; /* Grey color for less important text */
+  --color-border: #e0e0e0; /* Light grey for lines/dividers */
+  --color-input-bg: #ffffff; /* White background for search boxes */
+
+  --header-height: 95px; /* Height of the top header row */
+  --nav-height: 55px; /* Height of the navigation row */
+  --container-width: 1400px; /* Maximum width of the content area */
+
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth animation style */
+}
+
+/* =========================================
+   RESET & BASE STYLES
+   These remove default browser settings so we start with a clean slate.
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't increase element width */
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg-body);
+  color: var(--brand-primary);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevents horizontal scroll bar */
+}
+a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit;
+  transition: var(--transition); /* Smooths color changes on hover */
+}
+ul {
+  list-style: none; /* Removes bullet points from lists */
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer; /* Changes cursor to hand icon when hovering */
+  font-family: inherit;
+  color: inherit;
+}
+svg {
+  display: block; /* Removes extra space below icons */
+}
+
+/* =========================================
+   MAIN CONTENT AREA
+   Styling for the content below the header.
+   ========================================= */
+.main-content {
+  padding: 6rem 1.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content */
+}
+.hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  color: #222;
+  font-size: 2.2rem;
+}
+.hero-text {
+  margin-top: 1.5rem;
+  color: #555;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* =========================================
+   HEADER STRUCTURE
+   The main navigation bar at the top of the screen.
+   ========================================= */
+.site-header {
+  background-color: var(--brand-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky; /* Keeps header visible at the top while scrolling */
+  top: 0;
+  z-index: 1000; /* Ensures header stays on top of other content */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: visible;
+}
+
+.header-container {
+  max-width: var(--container-width);
+  margin: 0 auto; /* Centers the header container */
+  padding: 0 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+/* --- Top Row (Logo, Search, Icons) --- */
+.header-top {
+  height: var(--header-height);
+  display: flex; /* Aligns items in a row */
+  align-items: center; /* Vertically centers items */
+  justify-content: space-between; /* Pushes Left/Center/Right sections apart */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between elements inside this section */
+  flex: 1; /* Takes up available space */
+  min-width: 0;
+}
+.header-center {
+  flex: 0 0 auto; /* Don't stretch the logo */
+  margin: 0 1rem;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Aligns items to the right */
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  flex-shrink: 0; /* Prevents icons from squishing */
+}
+
+/* --- Logo Styling --- */
+.brand-logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  white-space: nowrap; /* Prevents logo from wrapping to two lines */
+  color: var(--brand-primary);
+}
+
+/* --- Links & Hover Effects --- */
+.nav-link,
+.top-link,
+.mobile-nav-link,
+.login-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+  color: var(--brand-primary);
+  white-space: nowrap;
+}
+
+/* Color change when mouse hovers over links */
+.nav-link:hover,
+.top-link:hover,
+.mobile-nav-link:hover,
+.login-link:hover {
+  font-weight: 700;
+  color: var(--brand-secondary);
+}
+
+.login-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 5px 0;
+}
+
+/* --- Search Input (Desktop) --- */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-input-bg);
+  border-radius: 50px; /* Makes it pill-shaped */
+  padding: 0.8rem 1.5rem;
+  transition: var(--transition);
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #cccccc;
+}
+/* Changes border color and shadow when you click inside the search box */
+.search-container:focus-within {
+  background-color: #ffffff;
+  border-color: var(--brand-secondary);
+  box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.15);
+}
+.search-input {
+  border: none;
+  background: transparent;
+  padding: 0.2rem 0;
+  outline: none; /* Removes default blue outline */
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: var(--brand-primary);
+}
+.search-input::placeholder {
+  color: #888;
+}
+.search-btn-icon {
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+.search-btn-icon:hover {
+  color: var(--brand-primary);
+}
+
+/* --- Mobile Specific Elements --- */
+.search-btn-mobile {
+  display: none; /* Hidden on Desktop, shown on Mobile */
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e6e6e6;
+  transition: var(--transition);
+}
+.search-btn-mobile:hover {
+  background: var(--brand-secondary);
+  color: white;
+}
+
+.account-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-link {
+  position: relative; /* Needed to position the badge absolutely */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-link svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* --- Cart Badge (The small circle with the number) --- */
+.cart-badge {
+  position: absolute; /* Positions it relative to the cart icon */
+  top: -5px;
+  right: -5px;
+  background-color: #b08d3b;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid var(--brand-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Desktop Bottom Navigation Bar --- */
+.header-nav {
+  height: var(--nav-height);
+  border-top: 1px solid var(--color-border);
+  background: var(--brand-bg);
+  overflow: visible;
+  position: relative;
+  z-index: 1001;
+}
+.nav-list {
+  display: flex;
+  justify-content: center; /* Centers the menu items */
+  gap: 2.5rem; /* Space between categories */
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+/* --- Dropdown Menus (Hover Lists) --- */
+.nav-item {
+  position: relative; /* Needed for positioning the dropdown below */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--brand-bg);
+  padding: 0 5px;
+  height: 100%;
+  align-items: center;
+}
+.dropdown-arrow {
+  transition: transform 0.3s;
+  width: 8px;
+  height: 8px;
+}
+/* Rotates the arrow when hovering over the parent item */
+.nav-item:hover > a .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* The actual dropdown box */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Places it right below the link */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Centers it and pushes it down slightly */
+  background: #ffffff;
+  min-width: 240px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 0;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden;
+  transition: var(--transition);
+  border: 1px solid #eeeeee;
+  overflow: visible;
+  z-index: 2000; /* Sits above everything */
+}
+/* Shows the menu on hover */
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Moves it up to its final position */
+}
+.dropdown-item {
+  padding: 14px 24px;
+  display: block;
+  font-size: 0.95rem;
+  color: #333;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+.dropdown-item:hover {
+  color: var(--brand-secondary);
+  background-color: #fff;
+  padding-left: 30px; /* Slight slide-right effect on hover */
+  font-weight: 600;
+}
+
+/* =========================================
+   MOBILE DRAWER (SIDE MENU)
+   The slide-out menu for mobile devices.
+   ========================================= */
+.mobile-toggle {
+  display: none; /* Hidden on desktop */
+  font-size: 1.8rem;
+  color: var(--brand-primary);
+  z-index: 1100;
+}
+
+/* The white menu box */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100vh;
+  background: white;
+  z-index: 2000;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  transform: translateX(
+    100%
+  ); /* Moves the drawer completely off-screen to the right */
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth slide effect */
+  display: flex;
+  flex-direction: column;
+}
+/* Class added by JavaScript to slide the drawer in */
+.mobile-drawer.active {
+  transform: translateX(0); /* Moves drawer back onto the screen */
+}
+
+/* The dark overlay behind the drawer */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0; /* Covers the whole screen */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  backdrop-filter: blur(2px); /* Blurs the content behind the overlay */
+}
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Drawer Search Bar --- */
+.drawer-search-section {
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  background: #fafafa;
+  border-bottom: 1px solid var(--color-border);
+}
+.drawer-search-input {
+  width: 100%;
+  padding: 14px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  background: white;
+}
+.drawer-search-input:focus {
+  border-color: var(--brand-secondary);
+}
+
+/* --- Drawer Header (Login Button) --- */
+.drawer-header {
+  padding: 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: #fafafa;
+}
+.drawer-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.drawer-login-btn:hover {
+  background-color: var(--brand-secondary);
+  color: white;
+}
+
+/* --- Drawer Links List --- */
+.mobile-nav-list {
+  padding: 1rem 0;
+  overflow-y: auto; /* Allows scrolling if list is long */
+  flex: 1;
+}
+.mobile-nav-item {
+  border-bottom: 1px solid #f5f5f5;
+}
+.mobile-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--brand-primary);
+}
+.mobile-nav-link span {
+  font-size: 0.8rem;
+  color: #999;
+  transition: transform 0.3s;
+}
+
+/* Mobile Submenu (The list inside a category) */
+.mobile-submenu {
+  background-color: #fafafa;
+  opacity: 0;
+  max-height: 0; /* Collapsed height */
+  overflow: hidden;
+  transition:
+    opacity 0.4s ease,
+    max-height 0.4s ease;
+}
+/* Class added by JS to expand the submenu */
+.mobile-submenu.fade-in {
+  opacity: 1;
+  max-height: 500px; /* Expanded height */
+}
+.mobile-sublink {
+  display: block;
+  padding: 0.9rem 2rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+.mobile-sublink:hover {
+  color: var(--brand-secondary);
+  font-weight: 600;
+  padding-left: 2.2rem; /* Small slide effect */
+}
+
+/* =========================================
+   CART DRAWER STYLES
+   Similar to mobile drawer, but specifically for the cart.
+   ========================================= */
+
+/* Backdrop (The dark overlay) */
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2500; /* Above Header (1000) and Mobile Menu (2000) */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+.cart-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The Cart Drawer (Sidebar) */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px; /* Width on Desktop */
+  max-width: 90vw; /* Prevents overflowing on small screens */
+  height: 100vh;
+  background: #ffffff;
+  z-index: 2600; /* Highest z-index so it sits on top */
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+
+  /* Animation State: Hidden by default */
+  transform: translateX(100%);
+  opacity: 0;
+
+  /* Professional Fade/Slide Animation */
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Active State: Slides in */
+.cart-drawer.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* --- Cart Header (Title & Close Button) --- */
+.cart-drawer-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+}
+.cart-drawer-header h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.close-cart-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.close-cart-btn:hover {
+  background: #ff4d4d; /* Red background on hover */
+  color: white;
+  border-color: #ff4d4d;
+}
+
+/* --- Cart Body (Items Area) --- */
+.cart-drawer-body {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+.empty-cart-msg svg {
+  margin-bottom: 1rem;
+}
+.empty-cart-msg p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.continue-shopping-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.continue-shopping-btn:hover {
+  background: var(--brand-bg);
+  border-color: var(--brand-primary);
+}
+
+/* --- Cart Footer (Total Price & Checkout) --- */
+.cart-drawer-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  background: #fff;
+}
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.checkout-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--brand-primary);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+.checkout-btn:hover {
+  background: var(--brand-secondary);
+}
+
+/* =========================================
+   MOBILE CART ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+  /* On mobile, the cart takes the FULL SCREEN */
+  .cart-drawer {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS (OPTIMIZED)
+   These rules change the layout based on screen size.
+   ========================================= */
+
+/* Laptop & Small Desktop */
+@media (max-width: 1200px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+  .search-container {
+    max-width: 220px; /* Shrink search bar slightly */
+  }
+}
+
+/* Tablet & Large Phone Landscape */
+@media (max-width: 992px) {
+  /* Hide Desktop Elements */
+  .header-nav,        /* Hide bottom menu */
+  .search-container,  /* Hide top search bar */
+  .desktop-only-text {
+    display: none !important;
+  }
+
+  /* Show Mobile Elements */
+  .mobile-toggle,
+  .search-btn-mobile {
+    display: flex; /* Show hamburger and search icon */
+  }
+
+  .header-top {
+    height: 70px; /* Smaller header for mobile */
+  }
+
+  .header-left,
+  .header-right {
+    flex: 1;
+  }
+
+  /* Logo scaling */
+  .brand-logo {
+    font-size: 1.6rem;
+  }
+
+  .label-text {
+    display: none;
+  }
+
+  .header-right {
+    gap: 0.8rem;
+  }
+
+  /* Adjust search button size */
+  .search-btn-mobile {
+    width: 36px;
+    height: 36px;
+  }
+  .account-link svg,
+  .cart-link svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* COMPACT MOBILE (iPhone SE, XR, Small Androids) */
+@media (max-width: 500px) {
+  /* Hide "Login" text to prevent overcrowding.
+     Users can still click the Account Icon to login. */
+  .login-link {
+    display: none;
+  }
+
+  /* Reduce Logo further */
+  .brand-logo {
+    font-size: 1.4rem;
+  }
+
+  /* Tighten gaps to fit everything cleanly */
+  .header-right {
+    gap: 0.6rem;
+  }
+
+  /* Reduce padding to maximize content width */
+  .header-container {
+    padding: 0 1rem;
+  }
+}
+
+/* VERY SMALL SCREENS (iPhone 4/5, etc) */
+@media (max-width: 360px) {
+  .brand-logo {
+    font-size: 1.2rem;
+  }
+  .search-btn-mobile {
+    width: 34px;
+    height: 34px;
+  }
+}

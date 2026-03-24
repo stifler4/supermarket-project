@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META TAGS: These set the character encoding and tell mobile devices how to scale the page correctly -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Buy | Premium Goods</title>
+
+    <!-- GOOGLE FONTS: We import 'Montserrat' and 'Poppins' here to make the text look modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS LINK: This connects our HTML file to the external stylesheet (css/index.css) -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER SECTION
+         This is the top navigation bar of the website
+    ========================================== -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <!-- ROW 1: The top bar containing Logo, Search, and User Icons -->
+            <div class="header-top">
+
+                <!-- LEFT SIDE: Contains Hamburger menu (for mobile) and Search bar (for desktop) -->
+                <div class="header-left">
+
+                    <!-- HAMBURGER ICON: The three lines icon. This button usually only shows up on mobile screens -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- SEARCH INPUT: This is the search bar. It is hidden on mobile and visible on desktop -->
+                    <div class="search-container">
+                        <input type="text" placeholder="Search products..." class="search-input">
+                        <button class="search-btn-icon">
+                            <!-- Search Icon SVG -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- "Create Kit" Link: A custom link visible only on larger screens -->
+                    <a href="#" class="top-link desktop-only-text">Create Kit</a>
+                </div>
+
+                <!-- CENTER SIDE: The Website Logo/Brand Name. It stays perfectly in the middle -->
+                <div class="header-center">
+                    <a href="#" class="brand-logo">Best Buy</a>
+                </div>
+
+
+                <!-- RIGHT SIDE: User Account, Login, Shopping Cart, and Mobile Search Icon -->
+                <div class="header-right">
+
+                    <!-- USER ICON: Represents the user account area -->
+                    <a href="#" class="account-link top-link" aria-label="Account">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+
+                    <!-- LOGIN LINK: Text link for the user to sign in -->
+                    <a href="#" class="login-link top-link">Login</a>
+
+                    <!-- CART ICON: The shopping cart. 
+                         The <span> with class "cart-badge" is the small red circle showing the number of items (1) -->
+                    <a href="#" class="cart-link top-link" id="cartTrigger">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="cart-badge">1</span>
+                    </a>
+
+                    <!-- MOBILE SEARCH ICON: A search button that only shows on mobile/tablet, hidden on desktop -->
+                    <button class="search-btn-mobile" id="mobileSearchToggle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- =========================================
+                 ROW 2: DESKTOP NAVIGATION MENU
+                 This list of links usually hides on mobile and shows on desktop
+            ========================================== -->
+            <nav class="header-nav">
+                <ul class="nav-list">
+
+                    <!-- NAV ITEM 1: Gaming (Includes a Dropdown Menu) -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Gaming
+                            <!-- Small arrow icon indicating a dropdown list exists -->
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <!-- DROPDOWN MENU: This nested list appears when you hover over "Gaming" -->
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Consoles</a></li>
+                            <li><a href="#" class="dropdown-item">Video Games</a></li>
+                            <li><a href="#" class="dropdown-item">Accessories</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- NAV ITEM 2: Electronics -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Electronics
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Laptops & PC</a></li>
+                            <li><a href="#" class="dropdown-item">Smartphones</a></li>
+                            <li><a href="#" class="dropdown-item">Headphones & Audio</a></li>
+                            <li><a href="#" class="dropdown-item">Cameras</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- NAV ITEM 3: Appliances -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Appliances
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Refrigerators</a></li>
+                            <li><a href="#" class="dropdown-item">Washers & Dryers</a></li>
+                            <li><a href="#" class="dropdown-item">Dishwashers</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- NAV ITEM 4: Bath & Body -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Bath & Body
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Soaps</a></li>
+                            <li><a href="#" class="dropdown-item">Lotions</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- NAV ITEM 5: Cleaning -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Cleaning
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">All Purpose</a></li>
+                            <li><a href="#" class="dropdown-item">Laundry</a></li>
+                            <li><a href="#" class="dropdown-item">Kitchen Cleaners</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- NAV ITEM 6: Foodstuffs -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Foodstuffs
+                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item">Grains & Rice</a></li>
+                            <li><a href="#" class="dropdown-item">Oils</a></li>
+                            <li><a href="#" class="dropdown-item">Snacks</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================================
+         MOBILE DRAWER (SIDE MENU)
+         This section slides in from the left ONLY on mobile devices
+    ========================================== -->
+
+    <!-- BACKDROP: The dark overlay that appears behind the menu when it's open -->
+    <div class="drawer-backdrop" id="backdrop"></div>
+
+    <!-- DRAWER CONTENT: The actual white menu box -->
+    <div class="mobile-drawer" id="mobileDrawer">
+
+        <!-- 1. Search Bar inside the mobile menu -->
+        <div class="drawer-search-section">
+            <input type="text" placeholder="Search..." class="drawer-search-input">
+        </div>
+
+        <!-- 2. Login Button Area -->
+        <div class="drawer-header">
+            <a href="#" class="drawer-login-btn">
+                <!-- Login Icon SVG -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                Login / Sign Up
+            </a>
+        </div>
+
+        <!-- 3. Mobile Navigation Links -->
+        <ul class="mobile-nav-list">
+
+            <!-- Create Kit Link (Also available in desktop top bar) -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link">Create Kit</a>
+            </li>
+
+            <!-- Gaming Category (Accordion Style) 
+                 Note: The class 'js-submenu-toggle' tells the JavaScript file to make this clickable to open/close the sub-links -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Gaming <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">Consoles</a></li>
+                    <li><a href="#" class="mobile-sublink">Video Games</a></li>
+                    <li><a href="#" class="mobile-sublink">Accessories</a></li>
+                </ul>
+            </li>
+
+            <!-- Electronics Category -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Electronics <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">Laptops</a></li>
+                    <li><a href="#" class="mobile-sublink">Phones</a></li>
+                    <li><a href="#" class="mobile-sublink">Audio</a></li>
+                </ul>
+            </li>
+
+            <!-- Appliances Category -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Appliances <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
+                    <li><a href="#" class="mobile-sublink">Washers</a></li>
+                    <li><a href="#" class="mobile-sublink">Dishwashers</a></li>
+                </ul>
+            </li>
+
+            <!-- Bath & Body Category -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Bath & Body <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">Soaps</a></li>
+                    <li><a href="#" class="mobile-sublink">Lotions</a></li>
+                </ul>
+            </li>
+
+            <!-- Cleaning Category -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Cleaning <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">All Purpose</a></li>
+                    <li><a href="#" class="mobile-sublink">Laundry</a></li>
+                    <li><a href="#" class="mobile-sublink">Kitchen Cleaners</a></li>
+                </ul>
+            </li>
+
+            <!-- Foodstuffs Category -->
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link js-submenu-toggle">
+                    Foodstuffs <span>▼</span>
+                </a>
+                <ul class="mobile-submenu">
+                    <li><a href="#" class="mobile-sublink">Grains</a></li>
+                    <li><a href="#" class="mobile-sublink">Oils</a></li>
+                    <li><a href="#" class="mobile-sublink">Snacks</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- =========================================
+         MAIN PAGE CONTENT
+         This is where the products, banners, and text of the website would go
+    ========================================== -->
+    <main class="main-content">
+        <h1 class="hero-title">Welcome to Best Buy</h1>
+    </main>
+
+    <!-- =========================================
+         SHOPPING CART DRAWER
+         This slides in from the right when the user clicks the cart icon
+    ========================================== -->
+    <!-- BACKDROP: Dark overlay for the cart -->
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+
+    <!-- CART PANEL: The actual cart container -->
+    <aside class="cart-drawer" id="cartDrawer">
+
+        <!-- Cart Header: Title and Close Button -->
+        <div class="cart-drawer-header">
+            <h2>Your Cart</h2>
+            <!-- The 'X' button closes the cart drawer -->
+            <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Cart Body: This area will display the items. Currently shows an "Empty" message -->
+        <div class="cart-drawer-body">
+            <div class="empty-cart-msg">
+                <!-- Empty Cart Icon -->
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Your cart is empty.</p>
+                <button class="continue-shopping-btn">Continue Shopping</button>
+            </div>
+        </div>
+
+        <!-- Cart Footer: Displays the Total Price and Checkout Button (Sticks to the bottom) -->
+        <div class="cart-drawer-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span class="total-price">$0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+
+    </aside>
+
+    <!-- =========================================
+         JAVASCRIPT LINK
+         This connects the HTML to the 'javascript/index.js' file, which handles the opening/closing logic
+    ========================================== -->
+    <script src="javascript/index.js"></script>
+</body>
+
+</html>
