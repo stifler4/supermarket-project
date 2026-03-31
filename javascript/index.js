@@ -132,4 +132,87 @@ document.addEventListener("DOMContentLoaded", () => {
   if (continueShopBtn) {
     continueShopBtn.addEventListener("click", closeCart);
   }
+
+  // ===========================================
+  // PART 3: SPA NAVIGATION LOGIC (NEW CODE)
+  // ===========================================
+
+  // 1. Select the main content container (The "Page" area)
+  // NOTE: Ensure your HTML <main> tag has id="app-content"
+  const appContent = document.getElementById("app-content");
+
+  // 2. Function to load HTML fragments
+  function loadPage(url) {
+    // Safety Check: If the ID is missing in HTML, stop here.
+    if (!appContent) return;
+
+    // Show a simple loading message for the user
+    appContent.innerHTML = "<h2>Loading...</h2>";
+
+    // Fetch the HTML file
+    fetch(url)
+      .then((response) => {
+        // If the file doesn't exist (404), throw an error
+        if (!response.ok) {
+          throw new Error("Page not found");
+        }
+        // Convert the response to text (HTML)
+        return response.text();
+      })
+      .then((html) => {
+        // Inject the fetched HTML into the main container
+        appContent.innerHTML = html;
+      })
+      .catch((error) => {
+        // If something goes wrong, show an error message in the content area
+        console.error("Error loading page:", error);
+        appContent.innerHTML = `
+          <div style="text-align:center; padding: 2rem;">
+            <h2>Oops!</h2>
+            <p>Could not load the page: ${url}</p>
+            <p>Make sure the file exists in your folder.</p>
+          </div>
+        `;
+      });
+  }
+
+  // 3. Global Event Listener for Navigation Clicks
+  // We use "Event Delegation" by listening on the whole document.
+  // This catches clicks on existing links AND any links added in the future.
+  document.addEventListener("click", function (e) {
+    // Find the closest <a> tag that was clicked (handles clicking icons inside links)
+    const link = e.target.closest("a");
+
+    // VALIDATION CHECKS:
+    // 1. Did we actually click a link?
+    // 2. Does it have an href attribute?
+    // 3. Does the href end with '.html'? (We only want to intercept our own pages, not '#' or external sites)
+    if (
+      link &&
+      link.getAttribute("href") &&
+      link.getAttribute("href").endsWith(".html")
+    ) {
+      // LOCATION CHECK:
+      // We only want to intercept links that are in the Navigation menus or the Logo.
+      // We IGNORE links in the Header Right (Cart, Login) to keep your original logic working.
+
+      const isNav = link.closest(".header-nav");
+      const isMobileNav = link.closest(".mobile-nav-list");
+      const isLogo = link.classList.contains("brand-logo");
+
+      if (isNav || isMobileNav || isLogo) {
+        e.preventDefault(); // Stop the browser from refreshing the page
+
+        const url = link.getAttribute("href"); // Get the filename (e.g., 'gaming.html')
+        loadPage(url); // Run the fetch function
+
+        // USER EXPERIENCE:
+        // If we clicked a link inside the Mobile Drawer, close the drawer automatically
+        // so the user can see the content they just loaded.
+        if (isMobileNav && mobileDrawer.classList.contains("active")) {
+          toggleDrawer(); // Reuse the function from Part 1
+        }
+      }
+    }
+  });
 }); // End of DOMContentLoaded
