@@ -59,9 +59,10 @@ svg {
    Styling for the content below the header.
    ========================================= */
 .main-content {
-  padding: 6rem 1.5rem;
+  padding: 4rem 1.5rem; /* Adjusted padding for the carousel */
   text-align: center;
-  max-width: 800px;
+  /* UPDATED: Changed max-width to 1400px so the Carousel looks large and professional */
+  max-width: var(--container-width);
   margin: 0 auto; /* Centers the content */
 }
 .hero-title {
@@ -453,22 +454,45 @@ svg {
   overflow-y: auto; /* Allows scrolling if list is long */
   flex: 1;
 }
+
+/* UPDATED: Flex container to hold Link and Button side-by-side */
 .mobile-nav-item {
+  display: flex;
+  justify-content: space-between; /* Pushes Link to left, Button to right */
+  align-items: center; /* Vertically centers them */
   border-bottom: 1px solid #f5f5f5;
 }
+
+/* UPDATED: Link takes up available space */
 .mobile-nav-link {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1.2rem 1.5rem;
   font-weight: 500;
   font-size: 1.05rem;
   color: var(--brand-primary);
+  flex-grow: 1; /* Ensures the link fills the space not used by the button */
 }
-.mobile-nav-link span {
-  font-size: 0.8rem;
+
+/* REMOVED: Old .mobile-nav-link span rule (Span is now inside button) */
+
+/* NEW: The Dropdown Toggle Button (Arrow) */
+.submenu-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.2rem 1.5rem; /* Match the link padding for even height */
   color: #999;
-  transition: transform 0.3s;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  flex-shrink: 0; /* Prevents the button from getting squished */
+}
+
+/* Transition for the arrow span (handled by JS inline styles, but transition needs CSS) */
+.submenu-toggle-btn span {
+  transition: transform 0.3s ease;
 }
 
 /* Mobile Submenu (The list inside a category) */
@@ -645,13 +669,797 @@ svg {
 }
 
 /* =========================================
-   MOBILE CART ADJUSTMENTS
+   HERO CAROUSEL STYLES
    ========================================= */
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  /* Keeps the carousel centered within the main-content container */
+  margin: 0 auto 4rem auto;
+  height: 550px; /* Fixed height for the slider */
+  overflow: hidden; /* Hides the non-active slides */
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  background-color: #ddd; /* Placeholder color while images load */
+}
+
+/* Individual Slide Styling */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden;
+  transition:
+    opacity 0.8s ease-in-out,
+    visibility 0.8s;
+  z-index: 1;
+}
+
+/* The Active Slide */
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Image Styling */
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area without stretching */
+}
+
+/* Dark Overlay (Gradient) for Text Readability */
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradient from transparent at top to dark at bottom */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 2; /* Above image, below text */
+}
+
+/* Slide Content (Text & Button) */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfectly center content */
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  z-index: 3; /* Above overlay */
+  color: #ffffff;
+}
+
+.slide-content h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Slide Button */
+.btn-slide {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--brand-secondary);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+  text-decoration: none;
+}
+
+.btn-slide:hover {
+  background-color: #fff;
+  color: var(--brand-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Arrows */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--brand-primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-control:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.1);
+  color: var(--brand-secondary);
+}
+
+.carousel-control.prev {
+  left: 20px;
+}
+.carousel-control.next {
+  right: 20px;
+}
+
+/* Indicators (Dots at the bottom) */
+.carousel-indicators {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.indicator.active {
+  background: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+  width: 30px; /* Active dot expands into a pill */
+  border-radius: 20px;
+}
+
+/* =========================================
+   BEST SELLERS SECTION STYLES (UPDATED)
+   ========================================= */
+
+.best-sellers-section {
+  padding: 4rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  color: var(--brand-primary);
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Slider Wrapper */
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.products-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.products-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Product Card Styling */
+.product-card {
+  flex: 0 0 auto;
+  width: 260px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
+}
+
+/* Product Image Area */
+.product-image {
+  width: 100%;
+  height: 300px;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+/* --- NEW: Shop Now Hover Overlay --- */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Darkens the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2; /* Above image, below badges */
+  pointer-events: none; /* Prevents clicking when hidden */
+}
+
+/* Show overlay on hover */
+.product-card:hover .image-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.shop-now-btn {
+  background-color: #fff;
+  color: var(--brand-primary);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background-color: var(--brand-secondary);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* --- Badges --- */
+.product-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 10; /* Highest priority, always on top */
+}
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+/* Badge Variants */
+.badge.new {
+  background-color: var(--brand-secondary);
+}
+.badge.best-seller {
+  background-color: #000;
+}
+.badge.sale {
+  background-color: #d32f2f;
+}
+
+/* --- NEW: Member Badge Style (Click to trigger modal) --- */
+.badge.member-off {
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer; /* Changes to hand icon */
+  transition: transform 0.2s;
+}
+.badge.member-off:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #222 0%, #444 100%);
+}
+
+/* Product Info */
+.product-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--brand-primary);
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-bottom: 0; /* Removed margin since button is gone */
+}
+
+/* Navigation Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.slider-arrow:hover {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+}
+
+.slider-arrow.prev {
+  left: -20px;
+}
+.slider-arrow.next {
+  right: -20px;
+}
+
+/* =========================================
+   MINDFUL LIVING SECTION STYLES
+   ========================================= */
+
+.mindful-living-section {
+  padding: 5rem 1.5rem;
+  background-color: #fff;
+}
+
+.mindful-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: Stacked */
+  gap: 4rem;
+  align-items: center;
+}
+
+/* LEFT COLUMN STYLES */
+.mindful-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.mindful-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Individual Category Item */
+.mindful-item {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mindful-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Small Thumbnail Image */
+.item-thumb {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Circular image like the reference */
+  overflow: hidden;
+  border: 2px solid #f0f0f0;
+}
+
+.item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mindful-item:hover .item-thumb img {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Text Content */
+.item-details {
+  flex: 1;
+}
+
+.item-details h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-bottom: 0.5rem;
+}
+
+.item-details p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 90%;
+}
+
+/* Shop Link */
+.shop-link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.3s ease;
+}
+
+.shop-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+.shop-link:hover {
+  gap: 10px; /* Arrow moves right on hover */
+  text-decoration: underline;
+}
+
+/* RIGHT COLUMN STYLES */
+.mindful-image-wrapper {
+  width: 100%;
+  height: 600px; /* Fixed height for the tall image */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.mindful-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the box without stretching */
+  transition: transform 0.5s ease;
+}
+
+.mindful-image-wrapper:hover .mindful-hero-img {
+  transform: scale(1.03); /* Subtle zoom effect */
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+/* Tablet & Desktop: Switch to 2 Columns */
+@media (min-width: 992px) {
+  .mindful-grid {
+    grid-template-columns: 1fr 1fr; /* Text Left | Image Right */
+    gap: 5rem;
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .mindful-title {
+    font-size: 2rem;
+  }
+
+  .mindful-image-wrapper {
+    height: 400px; /* Shorter image on mobile */
+    order: -1; /* Move image to top on mobile for better visual flow */
+  }
+
+  .item-thumb {
+    width: 80px;
+    height: 80px;
+  }
+
+  .item-details h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* =========================================
+   MEMBER MODAL STYLES (NEW)
+   ========================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 5000; /* Above everything */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 500px;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: #e0e0e0;
+}
+
+.modal-content h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--brand-primary);
+}
+
+.modal-content p {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-modal {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-login {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+.btn-login:hover {
+  background-color: #333;
+}
+
+.btn-join {
+  background-color: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+}
+.btn-join:hover {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .slider-arrow.prev {
+    left: 0;
+  }
+  .slider-arrow.next {
+    right: 0;
+  }
+  .products-track {
+    padding: 1rem 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: 220px;
+  }
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  .modal-content {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-card {
+    width: 160px;
+  }
+  .product-image {
+    height: 200px;
+  }
+  .product-info {
+    padding: 1rem;
+  }
+  .slider-arrow {
+    display: none;
+  }
+  .products-track {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+
+  /* Mobile Modal Adjustment */
+  .modal-content {
+    width: 95%;
+    padding: 2rem 1rem;
+  }
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================================
+   MOBILE ADJUSTMENTS
+   ========================================= */
+
+/* Mobile Cart Adjustments */
 @media (max-width: 768px) {
   /* On mobile, the cart takes the FULL SCREEN */
   .cart-drawer {
     width: 100%;
     max-width: 100%;
+  }
+
+  /* Carousel Mobile Adjustments */
+  .hero-carousel {
+    height: 400px; /* Shorter on mobile */
+    margin-bottom: 2rem;
+    border-radius: 0; /* Full width edges on mobile often look cleaner */
+  }
+
+  .slide-content h2 {
+    font-size: 2rem;
+  }
+
+  .slide-content p {
+    font-size: 1rem;
+  }
+
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-control.prev {
+    left: 10px;
+  }
+  .carousel-control.next {
+    right: 10px;
   }
 }
 
@@ -740,6 +1548,14 @@ svg {
   /* Reduce padding to maximize content width */
   .header-container {
     padding: 0 1rem;
+  }
+
+  .hero-carousel {
+    height: 300px; /* Even shorter on very small screens */
+  }
+
+  .slide-content h2 {
+    font-size: 1.5rem;
   }
 }
 

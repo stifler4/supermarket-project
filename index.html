@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-    <!-- META TAGS: These set the character encoding and tell mobile devices how to scale the page correctly -->
+    <!-- META TAGS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Buy | Premium Goods</title>
 
-    <!-- GOOGLE FONTS: We import 'Montserrat' and 'Poppins' here to make the text look modern -->
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- CSS LINK: This connects our HTML file to the external stylesheet (css/index.css) -->
+    <!-- CSS LINK -->
     <link rel="stylesheet" href="css/index.css">
 </head>
 
@@ -22,18 +22,16 @@
 
     <!-- =========================================
          HEADER SECTION
-         This is the top navigation bar of the website
     ========================================== -->
     <header class="site-header">
         <div class="header-container">
 
-            <!-- ROW 1: The top bar containing Logo, Search, and User Icons -->
+            <!-- ROW 1: Top Bar -->
             <div class="header-top">
 
-                <!-- LEFT SIDE: Contains Hamburger menu (for mobile) and Search bar (for desktop) -->
+                <!-- LEFT SIDE -->
                 <div class="header-left">
-
-                    <!-- HAMBURGER ICON: The three lines icon. This button usually only shows up on mobile screens -->
+                    <!-- HAMBURGER ICON -->
                     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,11 +41,10 @@
                         </svg>
                     </button>
 
-                    <!-- SEARCH INPUT: This is the search bar. It is hidden on mobile and visible on desktop -->
+                    <!-- SEARCH INPUT -->
                     <div class="search-container">
                         <input type="text" placeholder="Search products..." class="search-input">
                         <button class="search-btn-icon">
-                            <!-- Search Icon SVG -->
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="11" cy="11" r="8"></circle>
@@ -56,20 +53,17 @@
                         </button>
                     </div>
 
-                    <!-- "Create Kit" Link: A custom link visible only on larger screens -->
                     <a href="#" class="top-link desktop-only-text">Create Kit</a>
                 </div>
 
-                <!-- CENTER SIDE: The Website Logo/Brand Name. It stays perfectly in the middle -->
+                <!-- CENTER SIDE: Logo -->
                 <div class="header-center">
-                    <a href="#" class="brand-logo">Best Buy</a>
+                    <a href="index.html" class="brand-logo" title="Return to Home">Best Buy</a>
                 </div>
 
 
-                <!-- RIGHT SIDE: User Account, Login, Shopping Cart, and Mobile Search Icon -->
+                <!-- RIGHT SIDE -->
                 <div class="header-right">
-
-                    <!-- USER ICON: Represents the user account area -->
                     <a href="#" class="account-link top-link" aria-label="Account">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -78,11 +72,8 @@
                         </svg>
                     </a>
 
-                    <!-- LOGIN LINK: Text link for the user to sign in -->
                     <a href="#" class="login-link top-link">Login</a>
 
-                    <!-- CART ICON: The shopping cart. 
-                         The <span> with class "cart-badge" is the small red circle showing the number of items (1) -->
                     <a href="#" class="cart-link top-link" id="cartTrigger">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -93,7 +84,6 @@
                         <span class="cart-badge">1</span>
                     </a>
 
-                    <!-- MOBILE SEARCH ICON: A search button that only shows on mobile/tablet, hidden on desktop -->
                     <button class="search-btn-mobile" id="mobileSearchToggle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -101,27 +91,19 @@
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </button>
-
                 </div>
             </div>
 
-            <!-- =========================================
-                 ROW 2: DESKTOP NAVIGATION MENU
-                 This list of links usually hides on mobile and shows on desktop
-            ========================================== -->
+            <!-- ROW 2: DESKTOP NAVIGATION -->
             <nav class="header-nav">
                 <ul class="nav-list">
-
-                    <!-- NAV ITEM 1: Gaming (Includes a Dropdown Menu) -->
                     <li class="nav-item">
                         <a href="gaming.html" class="nav-link">Gaming
-                            <!-- Small arrow icon indicating a dropdown list exists -->
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </a>
-                        <!-- DROPDOWN MENU: This nested list appears when you hover over "Gaming" -->
                         <ul class="dropdown-menu">
                             <li><a href="#" class="dropdown-item">Consoles</a></li>
                             <li><a href="#" class="dropdown-item">Video Games</a></li>
@@ -129,7 +111,6 @@
                         </ul>
                     </li>
 
-                    <!-- NAV ITEM 2: Electronics -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">Electronics
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
@@ -145,7 +126,6 @@
                         </ul>
                     </li>
 
-                    <!-- NAV ITEM 3: Appliances -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">Appliances
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
@@ -160,7 +140,6 @@
                         </ul>
                     </li>
 
-                    <!-- NAV ITEM 4: Bath & Body -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">Bath & Body
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
@@ -174,7 +153,6 @@
                         </ul>
                     </li>
 
-                    <!-- NAV ITEM 5: Cleaning -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">Cleaning
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
@@ -189,7 +167,6 @@
                         </ul>
                     </li>
 
-                    <!-- NAV ITEM 6: Foodstuffs -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">Foodstuffs
                             <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
@@ -203,32 +180,29 @@
                             <li><a href="#" class="dropdown-item">Snacks</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- =========================================
-         MOBILE DRAWER (SIDE MENU)
-         This section slides in from the left ONLY on mobile devices
-    ========================================== -->
+     MOBILE DRAWER (SIDE MENU) - FIXED FOR NAVIGATION
+========================================== -->
 
-    <!-- BACKDROP: The dark overlay that appears behind the menu when it's open -->
+    <!-- BACKDROP -->
     <div class="drawer-backdrop" id="backdrop"></div>
 
-    <!-- DRAWER CONTENT: The actual white menu box -->
+    <!-- DRAWER CONTENT -->
     <div class="mobile-drawer" id="mobileDrawer">
 
-        <!-- 1. Search Bar inside the mobile menu -->
+        <!-- Search Bar -->
         <div class="drawer-search-section">
             <input type="text" placeholder="Search..." class="drawer-search-input">
         </div>
 
-        <!-- 2. Login Button Area -->
+        <!-- Login Button -->
         <div class="drawer-header">
             <a href="#" class="drawer-login-btn">
-                <!-- Login Icon SVG -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
@@ -239,20 +213,27 @@
             </a>
         </div>
 
-        <!-- 3. Mobile Navigation Links -->
+        <!-- Mobile Navigation Links -->
         <ul class="mobile-nav-list">
 
-            <!-- Create Kit Link (Also available in desktop top bar) -->
+            <!-- Create Kit Link -->
             <li class="mobile-nav-item">
                 <a href="#" class="mobile-nav-link">Create Kit</a>
             </li>
 
-            <!-- Gaming Category (Accordion Style) 
-                 Note: The class 'js-submenu-toggle' tells the JavaScript file to make this clickable to open/close the sub-links -->
+            <!-- GAMING (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Gaming <span>▼</span>
-                </a>
+                <!-- 1. THE LINK: This takes you to the page. 
+                 NOTE: 'js-submenu-toggle' is NOT here. -->
+                <a href="gaming.html" class="mobile-nav-link">Gaming</a>
+
+                <!-- 2. THE BUTTON: This opens the dropdown. 
+                 NOTE: 'js-submenu-toggle' IS here. -->
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Gaming Menu">
+                    <span>▼</span>
+                </button>
+
+                <!-- The Dropdown -->
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">Consoles</a></li>
                     <li><a href="#" class="mobile-sublink">Video Games</a></li>
@@ -260,11 +241,12 @@
                 </ul>
             </li>
 
-            <!-- Electronics Category -->
+            <!-- ELECTRONICS (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Electronics <span>▼</span>
-                </a>
+                <a href="#" class="mobile-nav-link">Electronics</a>
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Electronics Menu">
+                    <span>▼</span>
+                </button>
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">Laptops</a></li>
                     <li><a href="#" class="mobile-sublink">Phones</a></li>
@@ -272,11 +254,12 @@
                 </ul>
             </li>
 
-            <!-- Appliances Category -->
+            <!-- APPLIANCES (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Appliances <span>▼</span>
-                </a>
+                <a href="#" class="mobile-nav-link">Appliances</a>
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Appliances Menu">
+                    <span>▼</span>
+                </button>
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
                     <li><a href="#" class="mobile-sublink">Washers</a></li>
@@ -284,22 +267,24 @@
                 </ul>
             </li>
 
-            <!-- Bath & Body Category -->
+            <!-- BATH & BODY (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Bath & Body <span>▼</span>
-                </a>
+                <a href="#" class="mobile-nav-link">Bath & Body</a>
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Bath Menu">
+                    <span>▼</span>
+                </button>
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">Soaps</a></li>
                     <li><a href="#" class="mobile-sublink">Lotions</a></li>
                 </ul>
             </li>
 
-            <!-- Cleaning Category -->
+            <!-- CLEANING (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Cleaning <span>▼</span>
-                </a>
+                <a href="#" class="mobile-nav-link">Cleaning</a>
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Cleaning Menu">
+                    <span>▼</span>
+                </button>
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">All Purpose</a></li>
                     <li><a href="#" class="mobile-sublink">Laundry</a></li>
@@ -307,11 +292,12 @@
                 </ul>
             </li>
 
-            <!-- Foodstuffs Category -->
+            <!-- FOODSTUFFS (FIXED) -->
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link js-submenu-toggle">
-                    Foodstuffs <span>▼</span>
-                </a>
+                <a href="#" class="mobile-nav-link">Foodstuffs</a>
+                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Food Menu">
+                    <span>▼</span>
+                </button>
                 <ul class="mobile-submenu">
                     <li><a href="#" class="mobile-sublink">Grains</a></li>
                     <li><a href="#" class="mobile-sublink">Oils</a></li>
@@ -322,28 +308,363 @@
         </ul>
     </div>
 
+
     <!-- =========================================
          MAIN PAGE CONTENT
-         This is where the products, banners, and text of the website would go
     ========================================== -->
     <main class="main-content" id="app-content">
-        <h1 class="hero-title">Welcome to Best Buy</h1>
+
+        <!-- HERO CAROUSEL SECTION -->
+        <section class="hero-carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-slide active">
+                <img src="images/hero_gadget1.jpg" alt="New Arrivals" class="slide-image">
+                <div class="slide-content">
+                    <h2>New Season Arrivals</h2>
+                    <p>Discover the latest electronics and home goods.</p>
+                    <a href="#" class="btn-slide">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="images/hero_kitchen_1.jpg" alt="Summer Sale" class="slide-image">
+                <div class="slide-content">
+                    <h2>Summer Mega Sale</h2>
+                    <p>Up to 50% off on selected appliances.</p>
+                    <a href="#" class="btn-slide">View Deals</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="images/hero_clean_1.jpg" alt="Premium Cleaning" class="slide-image">
+                <div class="slide-content">
+                    <h2>Eco-Friendly Cleaning</h2>
+                    <p>Safe for your family and the planet.</p>
+                    <a href="#" class="btn-slide">Explore</a>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control prev" id="prevSlide" aria-label="Previous Slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="carousel-control next" id="nextSlide" aria-label="Next Slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button class="indicator active" data-slide-to="0" aria-label="Go to slide 1"></button>
+                <button class="indicator" data-slide-to="1" aria-label="Go to slide 2"></button>
+                <button class="indicator" data-slide-to="2" aria-label="Go to slide 3"></button>
+            </div>
+
+        </section>
+
+        <!-- BEST SELLERS SECTION -->
+        <section class="best-sellers-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Best Sellers</h2>
+                    <p>Discover our most loved products, chosen by our community for their quality and value.</p>
+                </div>
+
+                <div class="slider-wrapper">
+                    <button class="slider-arrow prev" id="bestSellersPrev" aria-label="Previous Products">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="products-track" id="productsTrack">
+
+                        <!-- PRODUCT 1 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
+                                <span class="badge best-seller">BEST SELLER</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Dish+Soap" alt="Dish Soap">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Dish Soap</h3>
+                                <p class="product-desc">Effective cleaning, gentle on hands.</p>
+                                <div class="product-price">$6.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 2 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
+                                <span class="badge best-seller">BEST SELLER</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Hand+Soap" alt="Hand Soap">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Hand Soap</h3>
+                                <p class="product-desc">Wash away germs naturally.</p>
+                                <div class="product-price">$5.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 3 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge best-seller">BEST SELLER</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Shampoo" alt="Shampoo">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Shampoo</h3>
+                                <p class="product-desc">Clean, healthy hair with every wash.</p>
+                                <div class="product-price">$8.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 4 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge best-seller">BEST SELLER</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Conditioner" alt="Conditioner">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Conditioner</h3>
+                                <p class="product-desc">Silky smooth finish, no buildup.</p>
+                                <div class="product-price">$8.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 5 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Body+Wash" alt="Body Wash">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Body Wash</h3>
+                                <p class="product-desc">Refreshing daily cleanse.</p>
+                                <div class="product-price">$7.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 6 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Lotion" alt="Lotion">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Lotion</h3>
+                                <p class="product-desc">Deep moisture for dry skin.</p>
+                                <div class="product-price">$9.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 7 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Toothpaste" alt="Toothpaste">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Toothpaste</h3>
+                                <p class="product-desc">Natural whitening formula.</p>
+                                <div class="product-price">$5.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 8 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Deodorant" alt="Deodorant">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Deodorant</h3>
+                                <p class="product-desc">All-day odor protection.</p>
+                                <div class="product-price">$6.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 9 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Sunscreen" alt="Sunscreen">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sunscreen</h3>
+                                <p class="product-desc">SPF 50 reef safe formula.</p>
+                                <div class="product-price">$12.00</div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT 10 -->
+                        <div class="product-card">
+                            <div class="product-badges">
+                                <span class="badge sale">SALE</span>
+                            </div>
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x400?text=Paper+Towels" alt="Paper Towels">
+                                <div class="image-overlay">
+                                    <a href="#" class="shop-now-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Paper Towels</h3>
+                                <p class="product-desc">Bamboo based, super absorbent.</p>
+                                <div class="product-price">$10.00</div>
+                            </div>
+                        </div>
+
+                    </div> <!-- End Track -->
+
+                    <button class="slider-arrow next" id="bestSellersNext" aria-label="Next Products">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBER DISCOUNT MODAL -->
+        <div class="modal-overlay" id="memberModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeMemberModal" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <h2>Members save 20% on almost everything.</h2>
+                <p>Join our community today and unlock exclusive prices on thousands of premium products.</p>
+
+                <div class="modal-actions">
+                    <button class="btn-modal btn-login">Log In</button>
+                    <button class="btn-modal btn-join">Join Today</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MINDFUL LIVING SECTION -->
+        <section class="mindful-living-section">
+            <div class="container">
+                <div class="mindful-grid">
+
+                    <!-- LEFT COLUMN -->
+                    <div class="mindful-content">
+
+                        <h2 class="mindful-title">Mindful living, made simple</h2>
+
+                        <!-- Category 1 -->
+                        <div class="mindful-item">
+                            <div class="item-thumb">
+                                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=200&q=80"
+                                    alt="Bathroom Products">
+                            </div>
+                            <div class="item-details">
+                                <h3>For The Bathroom</h3>
+                                <p>Safe, clean, eco-friendly formulas and beautifully minimal design.</p>
+                                <a href="#" class="shop-link">Shop Bath & Body <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="mindful-item">
+                            <div class="item-thumb">
+                                <img src="https://images.unsplash.com/photo-1581578731117-104f2a41232c?auto=format&fit=crop&w=200&q=80"
+                                    alt="Home Cleaning">
+                            </div>
+                            <div class="item-details">
+                                <h3>For The Home</h3>
+                                <p>Reimagined cleaning essentials: powerful, non-toxic formulas in refillable packaging.
+                                </p>
+                                <a href="#" class="shop-link">Shop Cleaning & Laundry <span
+                                        class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+
+                        <!-- Category 3 -->
+                        <div class="mindful-item">
+                            <div class="item-thumb">
+                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80"
+                                    alt="Kitchen Essentials">
+                            </div>
+                            <div class="item-details">
+                                <h3>For The Kitchen</h3>
+                                <p>Simple modern essentials for your kitchen and dining space.</p>
+                                <a href="#" class="shop-link">Shop Kitchen & Food <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="mindful-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80"
+                            alt="Mindful Kitchen Scene" class="mindful-hero-img">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- =========================================
-         SHOPPING CART DRAWER
-         This slides in from the right when the user clicks the cart icon
-    ========================================== -->
-    <!-- BACKDROP: Dark overlay for the cart -->
+    <!-- SHOPPING CART DRAWER -->
     <div class="cart-backdrop" id="cartBackdrop"></div>
 
-    <!-- CART PANEL: The actual cart container -->
     <aside class="cart-drawer" id="cartDrawer">
 
-        <!-- Cart Header: Title and Close Button -->
         <div class="cart-drawer-header">
             <h2>Your Cart</h2>
-            <!-- The 'X' button closes the cart drawer -->
             <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -353,10 +674,8 @@
             </button>
         </div>
 
-        <!-- Cart Body: This area will display the items. Currently shows an "Empty" message -->
         <div class="cart-drawer-body">
             <div class="empty-cart-msg">
-                <!-- Empty Cart Icon -->
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -368,7 +687,6 @@
             </div>
         </div>
 
-        <!-- Cart Footer: Displays the Total Price and Checkout Button (Sticks to the bottom) -->
         <div class="cart-drawer-footer">
             <div class="cart-total">
                 <span>Subtotal</span>
@@ -379,10 +697,7 @@
 
     </aside>
 
-    <!-- =========================================
-         JAVASCRIPT LINK
-         This connects the HTML to the 'javascript/index.js' file, which handles the opening/closing logic
-    ========================================== -->
+    <!-- JAVASCRIPT LINK -->
     <script src="javascript/index.js"></script>
 </body>
 
