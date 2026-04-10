@@ -264,4 +264,84 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMemberModalFunc();
     }
   });
+
+  // ===========================================
+  // PART 6: BUNDLES SLIDER LOGIC
+  // ===========================================
+
+  const bundleTrack = document.getElementById("bundleTrack");
+  const bundlePrev = document.getElementById("bundlePrev");
+  const bundleNext = document.getElementById("bundleNext");
+
+  if (bundleTrack && bundlePrev && bundleNext) {
+    // Adjust this amount based on your card width + gap (approx 320px)
+    const scrollAmount = 320;
+
+    bundleNext.addEventListener("click", () => {
+      bundleTrack.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    });
+
+    bundlePrev.addEventListener("click", () => {
+      bundleTrack.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  // ==========================================
+  // HEAVY 3D WORDPLAY ANIMATION LOGIC
+  // ==========================================
+
+  const heavyTitle = document.querySelector(".heavy-title");
+
+  if (heavyTitle) {
+    const text = heavyTitle.getAttribute("data-text");
+    heavyTitle.innerHTML = "";
+
+    const totalDuration = 10; // Must match CSS animation duration (10s)
+    const stagger = 0.15; // Delay between letters
+
+    text.split("").forEach((char, index) => {
+      const span = document.createElement("span");
+
+      if (char === " ") {
+        span.innerHTML = "&nbsp;";
+      } else {
+        span.textContent = char;
+      }
+
+      span.classList.add("char");
+
+      // --- CALCULATE RANDOM 3D TRAJECTORY ---
+      // Random distance between -600px and 600px
+      const tx = (Math.random() - 0.5) * 1200;
+      const ty = (Math.random() - 0.5) * 1200;
+      const tz = (Math.random() - 0.5) * 2000; // Deep Z-axis depth
+
+      // Random rotation angles
+      const rx = (Math.random() - 0.5) * 360;
+      const ry = (Math.random() - 0.5) * 360;
+
+      // Set CSS Variables for this specific letter
+      span.style.setProperty("--tx", `${tx}px`);
+      span.style.setProperty("--ty", `${ty}px`);
+      span.style.setProperty("--tz", `${tz}px`);
+      span.style.setProperty("--rx", `${rx}deg`);
+      span.style.setProperty("--ry", `${ry}deg`);
+
+      // Calculate delay so they don't all arrive at once
+      // We want them to arrive within the first 3 seconds of the 10s loop
+      const delay = index * stagger;
+
+      // We use negative delay to "pre-warm" the animation or just stagger it
+      // To keep the loop synced, we keep the delay simple
+      span.style.animationDelay = `${delay}s`;
+
+      heavyTitle.appendChild(span);
+    });
+  }
 }); // End of DOMContentLoaded
