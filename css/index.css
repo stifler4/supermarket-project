@@ -396,7 +396,7 @@ svg {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s;
-  backdrop-filter: blur(2px); /* Blurs the content behind the overlay */
+  /* Blurs the content behind the overlay */
 }
 .drawer-backdrop.active {
   opacity: 1;
@@ -538,7 +538,6 @@ svg {
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease;
-  backdrop-filter: blur(2px);
 }
 .cart-backdrop.active {
   opacity: 1;
@@ -1277,7 +1276,6 @@ svg {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
 }
 
 .modal-overlay.active {
@@ -1580,7 +1578,6 @@ svg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Creates a nice parallax effect when scrolling */
 
   position: relative;
   padding: 100px 20px; /* Generous spacing top/bottom */
@@ -1790,7 +1787,7 @@ svg {
     opacity: 0;
     transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--rx))
       rotateY(var(--ry));
-    filter: blur(20px);
+    filter: blur(10px);
   }
   20% {
     /* SLAM into place */
@@ -1819,7 +1816,7 @@ svg {
     opacity: 0;
     transform: translate3d(calc(var(--tx) * -2), calc(var(--ty) * -2), -1000px)
       scale(0);
-    filter: blur(50px);
+    filter: blur(10px);
   }
 }
 
@@ -2177,6 +2174,84 @@ svg {
   color: #999;
   font-weight: 600;
   margin: 0 5px;
+}
+
+/* Cart Item Styles */
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-details h4 {
+  font-size: 0.9rem;
+  margin: 0 0 5px 0;
+}
+
+.cart-item-price {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.cart-item-total {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.remove-item-btn:hover {
+  color: red;
+}
+
+.clear-cart-btn {
+  background: none;
+  border: none;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-right: 15px;
+}
+
+/* Drawer Active State (needed to show it) */
+.cart-drawer.active {
+  transform: translateX(0);
+}
+
+.search-feedback {
+  display: block;
+  color: #d9534f; /* Red color */
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Mobile Search Feedback Style */
+.drawer-search-section .search-feedback {
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+  padding-left: 5px;
 }
 
 /* =========================================

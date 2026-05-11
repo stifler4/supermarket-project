@@ -41,9 +41,11 @@
                         </svg>
                     </button>
 
-                    <!-- SEARCH INPUT -->
+
                     <div class="search-container">
-                        <input type="text" placeholder="Search products..." class="search-input">
+                        <!-- 1. Added id="searchInput" -->
+                        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+
                         <button class="search-btn-icon">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -51,6 +53,9 @@
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
                         </button>
+
+                        <!-- 2. Added this span to show error messages -->
+                        <span id="searchFeedback" class="search-feedback"></span>
                     </div>
 
                     <a href="#" class="top-link desktop-only-text">Create Kit</a>
@@ -81,7 +86,7 @@
                             <line x1="3" y1="6" x2="21" y2="6"></line>
                             <path d="M16 10a4 4 0 0 1-8 0"></path>
                         </svg>
-                        <span class="cart-badge">1</span>
+                        <span class="cart-badge">0</span>
                     </a>
 
                     <button class="search-btn-mobile" id="mobileSearchToggle">
@@ -197,7 +202,9 @@
 
         <!-- Search Bar -->
         <div class="drawer-search-section">
-            <input type="text" placeholder="Search..." class="drawer-search-input">
+            <!-- Added ID and Feedback Span -->
+            <input type="text" id="mobileSearchInput" placeholder="Search..." class="drawer-search-input">
+            <span id="mobileSearchFeedback" class="search-feedback"></span>
         </div>
 
         <!-- Login Button -->
@@ -319,7 +326,7 @@
 
             <!-- Slide 1 -->
             <div class="carousel-slide active">
-                <img src="images/hero_gadget1.jpg" alt="New Arrivals" class="slide-image">
+                <img src="images/hero_gadget1.jpg" alt="New Arrivals" class="slide-image" loading="lazy">
                 <div class="slide-content">
                     <h2>New Season Arrivals</h2>
                     <p>Discover the latest electronics and home goods.</p>
@@ -329,7 +336,7 @@
 
             <!-- Slide 2 -->
             <div class="carousel-slide">
-                <img src="images/hero_kitchen_1.jpg" alt="Summer Sale" class="slide-image">
+                <img src="images/hero_kitchen_1.jpg" alt="Summer Sale" class="slide-image" loading="lazy">
                 <div class="slide-content">
                     <h2>Summer Mega Sale</h2>
                     <p>Up to 50% off on selected appliances.</p>
@@ -339,7 +346,7 @@
 
             <!-- Slide 3 -->
             <div class="carousel-slide">
-                <img src="images/hero_clean_1.jpg" alt="Premium Cleaning" class="slide-image">
+                <img src="images/hero_clean_1.jpg" alt="Premium Cleaning" class="slide-image" loading="lazy">
                 <div class="slide-content">
                     <h2>Eco-Friendly Cleaning</h2>
                     <p>Safe for your family and the planet.</p>
@@ -388,175 +395,9 @@
 
                     <div class="products-track" id="productsTrack">
 
-                        <!-- PRODUCT 1 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
-                                <span class="badge best-seller">BEST SELLER</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Dish+Soap" alt="Dish Soap">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Dish Soap</h3>
-                                <p class="product-desc">Effective cleaning, gentle on hands.</p>
-                                <div class="product-price">$6.00</div>
-                            </div>
-                        </div>
 
-                        <!-- PRODUCT 2 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
-                                <span class="badge best-seller">BEST SELLER</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Hand+Soap" alt="Hand Soap">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Hand Soap</h3>
-                                <p class="product-desc">Wash away germs naturally.</p>
-                                <div class="product-price">$5.00</div>
-                            </div>
-                        </div>
 
-                        <!-- PRODUCT 3 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge best-seller">BEST SELLER</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Shampoo" alt="Shampoo">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Shampoo</h3>
-                                <p class="product-desc">Clean, healthy hair with every wash.</p>
-                                <div class="product-price">$8.00</div>
-                            </div>
-                        </div>
 
-                        <!-- PRODUCT 4 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge best-seller">BEST SELLER</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Conditioner" alt="Conditioner">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Conditioner</h3>
-                                <p class="product-desc">Silky smooth finish, no buildup.</p>
-                                <div class="product-price">$8.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 5 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Body+Wash" alt="Body Wash">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Body Wash</h3>
-                                <p class="product-desc">Refreshing daily cleanse.</p>
-                                <div class="product-price">$7.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 6 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Lotion" alt="Lotion">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Lotion</h3>
-                                <p class="product-desc">Deep moisture for dry skin.</p>
-                                <div class="product-price">$9.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 7 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge new">NEW</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Toothpaste" alt="Toothpaste">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Toothpaste</h3>
-                                <p class="product-desc">Natural whitening formula.</p>
-                                <div class="product-price">$5.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 8 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Deodorant" alt="Deodorant">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Deodorant</h3>
-                                <p class="product-desc">All-day odor protection.</p>
-                                <div class="product-price">$6.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 9 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Sunscreen" alt="Sunscreen">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Sunscreen</h3>
-                                <p class="product-desc">SPF 50 reef safe formula.</p>
-                                <div class="product-price">$12.00</div>
-                            </div>
-                        </div>
-
-                        <!-- PRODUCT 10 -->
-                        <div class="product-card">
-                            <div class="product-badges">
-                                <span class="badge sale">SALE</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/300x400?text=Paper+Towels" alt="Paper Towels">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Paper Towels</h3>
-                                <p class="product-desc">Bamboo based, super absorbent.</p>
-                                <div class="product-price">$10.00</div>
-                            </div>
-                        </div>
 
                     </div> <!-- End Track -->
 
@@ -606,8 +447,7 @@
                         <!-- Category 1 -->
                         <div class="mindful-item">
                             <div class="item-thumb">
-                                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=200&q=80"
-                                    alt="Bathroom Products">
+                                <img src="images/For_The_Bathroom.jpg" alt="Bathroom Products">
                             </div>
                             <div class="item-details">
                                 <h3>For The Bathroom</h3>
@@ -619,8 +459,7 @@
                         <!-- Category 2 -->
                         <div class="mindful-item">
                             <div class="item-thumb">
-                                <img src="https://images.unsplash.com/photo-1581578731117-104f2a41232c?auto=format&fit=crop&w=200&q=80"
-                                    alt="Home Cleaning">
+                                <img src="images/For_The_Home.jpg" alt="Home Cleaning">
                             </div>
                             <div class="item-details">
                                 <h3>For The Home</h3>
@@ -634,8 +473,7 @@
                         <!-- Category 3 -->
                         <div class="mindful-item">
                             <div class="item-thumb">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80"
-                                    alt="Kitchen Essentials">
+                                <img src="images/For_The_Kitchen.jpg" alt="Kitchen Essentials">
                             </div>
                             <div class="item-details">
                                 <h3>For The Kitchen</h3>
@@ -649,7 +487,7 @@
                     <!-- RIGHT COLUMN -->
                     <div class="mindful-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80"
-                            alt="Mindful Kitchen Scene" class="mindful-hero-img">
+                            alt="Mindful Kitchen Scene" class="mindful-hero-img" loading="lazy">
                     </div>
 
                 </div>
@@ -662,11 +500,12 @@
         <section class="storage-display-section">
             <div class="container">
                 <!-- Replace 'storage_shelves.png' with the actual filename in your images folder -->
-                <img src="images/homepage-shelve.webp" </div>
+                <img src="images/homepage-shelve.webp" alt="Storage Display" class="storage-img">
+            </div>
         </section>
 
         <!-- =========================================
-     PREMIUM STARTER SETS SECTION (10 ITEMS)
+     PREMIUM STARTER SETS SECTION (7 ITEMS)
 ========================================= -->
         <section class="premium-sets-section">
             <div class="container">
@@ -687,200 +526,9 @@
                     <!-- SCROLL TRACK -->
                     <div class="products-track" id="bundleTrack">
 
-                        <!-- 1. THE BATHROOM REFRESH -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
-                                <span class="badge best-seller">POPULAR</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Bathroom+Set"
-                                    alt="Bathroom Refresh Kit">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>The Bathroom Refresh</h3>
-                                <p class="product-desc">Hand Soap, Lotion, and Ceramic Tray.</p>
-                                <div class="product-price">$34.00</div>
 
-                            </div>
-                        </div>
 
-                        <!-- 2. THE DEEP CLEAN KIT -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">15% OFF FOR MEMBERS</span>
-                                <span class="badge new">NEW ARRIVAL</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Deep+Clean" alt="Deep Clean Kit">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>The Deep Clean Kit</h3>
-                                <p class="product-desc">All-Purpose Cleaner, Glass Spray, Cloths.</p>
-                                <div class="product-price">$42.00</div>
 
-                            </div>
-                        </div>
-
-                        <!-- 3. KITCHEN ESSENTIALS -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Kitchen+Set"
-                                    alt="Kitchen Essentials">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Kitchen Essentials</h3>
-                                <p class="product-desc">Dish Soap, Sponge, and Bamboo Brush set.</p>
-                                <div class="product-price">$28.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 4. LAUNDRY ROUTINE -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge sale">SALE</span>
-                                <span class="badge best-seller">TOP RATED</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Laundry+Kit" alt="Laundry Routine">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Laundry Routine</h3>
-                                <p class="product-desc">Detergent, Fabric Softener, and Stain Stick.</p>
-                                <div class="product-price">$38.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 5. THE SPA ESCAPE -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">25% OFF FOR MEMBERS</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Spa+Kit" alt="The Spa Escape">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>The Spa Escape</h3>
-                                <p class="product-desc">Body Wash, Bath Salts, and Soy Candle.</p>
-                                <div class="product-price">$45.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 6. MORNING SKINCARE -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge new">NEW</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Skincare+Set" alt="Morning Skincare">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Morning Skincare</h3>
-                                <p class="product-desc">Gentle Cleanser, Toner, and Daily Moisturizer.</p>
-                                <div class="product-price">$55.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 7. PET CARE BUNDLE -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">10% OFF FOR MEMBERS</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Pet+Care" alt="Pet Care Bundle">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Pet Care Bundle</h3>
-                                <p class="product-desc">Natural Pet Shampoo, Paw Wipes, and Towel.</p>
-                                <div class="product-price">$30.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 8. WORKSPACE FRESHENER -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge best-seller">POPULAR</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Desk+Set" alt="Workspace Freshener">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Workspace Freshener</h3>
-                                <p class="product-desc">Screen Wipes, Desk Spray, and Sanitizer.</p>
-                                <div class="product-price">$25.00</div>
-                            </div>
-                        </div>
-
-                        <!-- 9. GUEST WELCOME KIT -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge sale">15% OFF</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Guest+Kit" alt="Guest Welcome Kit">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Guest Welcome Kit</h3>
-                                <p class="product-desc">Mini Soaps, Lotion, and Room Spray.</p>
-                                <div class="product-price">$32.00</div>
-
-                            </div>
-                        </div>
-
-                        <!-- 10. ZERO WASTE STARTER -->
-                        <div class="product-card bundle-card">
-                            <div class="product-badges">
-                                <span class="badge member-off">20% OFF FOR MEMBERS</span>
-                                <span class="badge new">ECO</span>
-                            </div>
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/400x500?text=Eco+Set" alt="Zero Waste Starter">
-                                <div class="image-overlay">
-                                    <a href="#" class="shop-now-btn">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Zero Waste Starter</h3>
-                                <p class="product-desc">Bamboo Set, Glass Bottles, and Loofah.</p>
-                                <div class="product-price">$40.00</div>
-
-                            </div>
-                        </div>
 
                     </div> <!-- End Track -->
 
@@ -1174,6 +822,12 @@
 
         <div class="cart-drawer-header">
             <h2>Your Cart</h2>
+
+            <!-- NEW: Clear Cart Button -->
+            <button class="clear-cart-btn" id="clearCartBtn" aria-label="Clear Cart">
+                Clear Cart
+            </button>
+
             <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -1207,7 +861,9 @@
     </aside>
 
     <!-- JAVASCRIPT LINK -->
+    <script src="javascript/product.js"></script>
     <script src="javascript/index.js"></script>
+
 </body>
 
 </html>
