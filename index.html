@@ -1,193 +1,302 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- META TAGS -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best Buy | Premium Goods</title>
 
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS LINK -->
-    <link rel="stylesheet" href="css/index.css">
-</head>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- =========================================
          HEADER SECTION
     ========================================== -->
     <header class="site-header">
-        <div class="header-container">
+      <div class="header-container">
+        <!-- ROW 1: Top Bar -->
+        <div class="header-top">
+          <!-- LEFT SIDE -->
+          <div class="header-left">
+            <!-- HAMBURGER ICON -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
 
-            <!-- ROW 1: Top Bar -->
-            <div class="header-top">
+            <div class="search-container">
+              <!-- 1. Added id="searchInput" -->
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                class="search-input"
+              />
 
-                <!-- LEFT SIDE -->
-                <div class="header-left">
-                    <!-- HAMBURGER ICON -->
-                    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </button>
+              <button class="search-btn-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
 
-
-                    <div class="search-container">
-                        <!-- 1. Added id="searchInput" -->
-                        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
-
-                        <button class="search-btn-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </button>
-
-                        <!-- 2. Added this span to show error messages -->
-                        <span id="searchFeedback" class="search-feedback"></span>
-                    </div>
-
-                    <a href="#" class="top-link desktop-only-text">Create Kit</a>
-                </div>
-
-                <!-- CENTER SIDE: Logo -->
-                <div class="header-center">
-                    <a href="index.html" class="brand-logo" title="Return to Home">Best Buy</a>
-                </div>
-
-
-                <!-- RIGHT SIDE -->
-                <div class="header-right">
-                    <a href="#" class="account-link top-link" aria-label="Account">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </a>
-
-                    <a href="#" class="login-link top-link">Login</a>
-
-                    <a href="#" class="cart-link top-link" id="cartTrigger">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
-                        <span class="cart-badge">0</span>
-                    </a>
-
-                    <button class="search-btn-mobile" id="mobileSearchToggle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </button>
-                </div>
+              <!-- 2. Added this span to show error messages -->
+              <span id="searchFeedback" class="search-feedback"></span>
             </div>
 
-            <!-- ROW 2: DESKTOP NAVIGATION -->
-            <nav class="header-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="gaming.html" class="nav-link">Gaming
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Consoles</a></li>
-                            <li><a href="#" class="dropdown-item">Video Games</a></li>
-                            <li><a href="#" class="dropdown-item">Accessories</a></li>
-                        </ul>
-                    </li>
+            <a href="#" class="top-link desktop-only-text">Create Kit</a>
+          </div>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Electronics
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Laptops & PC</a></li>
-                            <li><a href="#" class="dropdown-item">Smartphones</a></li>
-                            <li><a href="#" class="dropdown-item">Headphones & Audio</a></li>
-                            <li><a href="#" class="dropdown-item">Cameras</a></li>
-                        </ul>
-                    </li>
+          <!-- CENTER SIDE: Logo -->
+          <div class="header-center">
+            <a href="index.html" class="brand-logo" title="Return to Home"
+              >Best Buy</a
+            >
+          </div>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Appliances
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Refrigerators</a></li>
-                            <li><a href="#" class="dropdown-item">Washers & Dryers</a></li>
-                            <li><a href="#" class="dropdown-item">Dishwashers</a></li>
-                        </ul>
-                    </li>
+          <!-- RIGHT SIDE -->
+          <div class="header-right">
+            <a
+              href="account.html"
+              class="account-link top-link"
+              id="accountIconBtn"
+              aria-label="Account"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Bath & Body
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Soaps</a></li>
-                            <li><a href="#" class="dropdown-item">Lotions</a></li>
-                        </ul>
-                    </li>
+            <a href="login.html" class="login-link top-link" id="headerAuthLink"
+              >Login</a
+            >
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Cleaning
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">All Purpose</a></li>
-                            <li><a href="#" class="dropdown-item">Laundry</a></li>
-                            <li><a href="#" class="dropdown-item">Kitchen Cleaners</a></li>
-                        </ul>
-                    </li>
+            <a href="#" class="cart-link top-link" id="cartTrigger">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="cart-badge">0</span>
+            </a>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Foodstuffs
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Grains & Rice</a></li>
-                            <li><a href="#" class="dropdown-item">Oils</a></li>
-                            <li><a href="#" class="dropdown-item">Snacks</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+            <button class="search-btn-mobile" id="mobileSearchToggle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
         </div>
+
+        <!-- ROW 2: DESKTOP NAVIGATION -->
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="gaming.html" class="nav-link"
+                >Gaming
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Consoles</a></li>
+                <li><a href="#" class="dropdown-item">Video Games</a></li>
+                <li><a href="#" class="dropdown-item">Accessories</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Electronics
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Laptops & PC</a></li>
+                <li><a href="#" class="dropdown-item">Smartphones</a></li>
+                <li>
+                  <a href="#" class="dropdown-item">Headphones & Audio</a>
+                </li>
+                <li><a href="#" class="dropdown-item">Cameras</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Appliances
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Refrigerators</a></li>
+                <li><a href="#" class="dropdown-item">Washers & Dryers</a></li>
+                <li><a href="#" class="dropdown-item">Dishwashers</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Bath & Body
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Soaps</a></li>
+                <li><a href="#" class="dropdown-item">Lotions</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Cleaning
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">All Purpose</a></li>
+                <li><a href="#" class="dropdown-item">Laundry</a></li>
+                <li><a href="#" class="dropdown-item">Kitchen Cleaners</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Foodstuffs
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Grains & Rice</a></li>
+                <li><a href="#" class="dropdown-item">Oils</a></li>
+                <li><a href="#" class="dropdown-item">Snacks</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- =========================================
@@ -199,671 +308,921 @@
 
     <!-- DRAWER CONTENT -->
     <div class="mobile-drawer" id="mobileDrawer">
+      <!-- Search Bar -->
+      <div class="drawer-search-section">
+        <!-- Added ID and Feedback Span -->
+        <input
+          type="text"
+          id="mobileSearchInput"
+          placeholder="Search..."
+          class="drawer-search-input"
+        />
+        <span id="mobileSearchFeedback" class="search-feedback"></span>
+      </div>
 
-        <!-- Search Bar -->
-        <div class="drawer-search-section">
-            <!-- Added ID and Feedback Span -->
-            <input type="text" id="mobileSearchInput" placeholder="Search..." class="drawer-search-input">
-            <span id="mobileSearchFeedback" class="search-feedback"></span>
-        </div>
+      <!-- Login Button -->
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Login / Sign Up
+        </a>
+      </div>
 
-        <!-- Login Button -->
-        <div class="drawer-header">
-            <a href="#" class="drawer-login-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                    <polyline points="10 17 15 12 10 7"></polyline>
-                    <line x1="15" y1="12" x2="3" y2="12"></line>
-                </svg>
-                Login / Sign Up
-            </a>
-        </div>
+      <!-- Mobile Navigation Links -->
+      <ul class="mobile-nav-list">
+        <!-- Create Kit Link -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Create Kit</a>
+        </li>
 
-        <!-- Mobile Navigation Links -->
-        <ul class="mobile-nav-list">
-
-            <!-- Create Kit Link -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Create Kit</a>
-            </li>
-
-            <!-- GAMING (FIXED) -->
-            <li class="mobile-nav-item">
-                <!-- 1. THE LINK: This takes you to the page. 
+        <!-- GAMING (FIXED) -->
+        <li class="mobile-nav-item">
+          <!-- 1. THE LINK: This takes you to the page. 
                  NOTE: 'js-submenu-toggle' is NOT here. -->
-                <a href="gaming.html" class="mobile-nav-link">Gaming</a>
+          <a href="gaming.html" class="mobile-nav-link">Gaming</a>
 
-                <!-- 2. THE BUTTON: This opens the dropdown. 
+          <!-- 2. THE BUTTON: This opens the dropdown. 
                  NOTE: 'js-submenu-toggle' IS here. -->
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Gaming Menu">
-                    <span>▼</span>
-                </button>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Gaming Menu"
+          >
+            <span>▼</span>
+          </button>
 
-                <!-- The Dropdown -->
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Consoles</a></li>
-                    <li><a href="#" class="mobile-sublink">Video Games</a></li>
-                    <li><a href="#" class="mobile-sublink">Accessories</a></li>
-                </ul>
-            </li>
+          <!-- The Dropdown -->
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Consoles</a></li>
+            <li><a href="#" class="mobile-sublink">Video Games</a></li>
+            <li><a href="#" class="mobile-sublink">Accessories</a></li>
+          </ul>
+        </li>
 
-            <!-- ELECTRONICS (FIXED) -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Electronics</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Electronics Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Laptops</a></li>
-                    <li><a href="#" class="mobile-sublink">Phones</a></li>
-                    <li><a href="#" class="mobile-sublink">Audio</a></li>
-                </ul>
-            </li>
+        <!-- ELECTRONICS (FIXED) -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Electronics</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Electronics Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Laptops</a></li>
+            <li><a href="#" class="mobile-sublink">Phones</a></li>
+            <li><a href="#" class="mobile-sublink">Audio</a></li>
+          </ul>
+        </li>
 
-            <!-- APPLIANCES (FIXED) -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Appliances</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Appliances Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
-                    <li><a href="#" class="mobile-sublink">Washers</a></li>
-                    <li><a href="#" class="mobile-sublink">Dishwashers</a></li>
-                </ul>
-            </li>
+        <!-- APPLIANCES (FIXED) -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Appliances</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Appliances Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
+            <li><a href="#" class="mobile-sublink">Washers</a></li>
+            <li><a href="#" class="mobile-sublink">Dishwashers</a></li>
+          </ul>
+        </li>
 
-            <!-- BATH & BODY (FIXED) -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Bath & Body</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Bath Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Soaps</a></li>
-                    <li><a href="#" class="mobile-sublink">Lotions</a></li>
-                </ul>
-            </li>
+        <!-- BATH & BODY (FIXED) -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Bath & Body</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Bath Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Soaps</a></li>
+            <li><a href="#" class="mobile-sublink">Lotions</a></li>
+          </ul>
+        </li>
 
-            <!-- CLEANING (FIXED) -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Cleaning</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Cleaning Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">All Purpose</a></li>
-                    <li><a href="#" class="mobile-sublink">Laundry</a></li>
-                    <li><a href="#" class="mobile-sublink">Kitchen Cleaners</a></li>
-                </ul>
-            </li>
+        <!-- CLEANING (FIXED) -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Cleaning</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Cleaning Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">All Purpose</a></li>
+            <li><a href="#" class="mobile-sublink">Laundry</a></li>
+            <li><a href="#" class="mobile-sublink">Kitchen Cleaners</a></li>
+          </ul>
+        </li>
 
-            <!-- FOODSTUFFS (FIXED) -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Foodstuffs</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Food Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Grains</a></li>
-                    <li><a href="#" class="mobile-sublink">Oils</a></li>
-                    <li><a href="#" class="mobile-sublink">Snacks</a></li>
-                </ul>
-            </li>
-
-        </ul>
+        <!-- FOODSTUFFS (FIXED) -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Foodstuffs</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Food Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Grains</a></li>
+            <li><a href="#" class="mobile-sublink">Oils</a></li>
+            <li><a href="#" class="mobile-sublink">Snacks</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-
 
     <!-- =========================================
          MAIN PAGE CONTENT
     ========================================== -->
     <main class="main-content" id="app-content">
-
-        <!-- HERO CAROUSEL SECTION -->
-        <section class="hero-carousel">
-
-            <!-- Slide 1 -->
-            <div class="carousel-slide active">
-                <img src="images/hero_gadget1.jpg" alt="New Arrivals" class="slide-image" loading="lazy">
-                <div class="slide-content">
-                    <h2>New Season Arrivals</h2>
-                    <p>Discover the latest electronics and home goods.</p>
-                    <a href="#" class="btn-slide">Shop Now</a>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-slide">
-                <img src="images/hero_kitchen_1.jpg" alt="Summer Sale" class="slide-image" loading="lazy">
-                <div class="slide-content">
-                    <h2>Summer Mega Sale</h2>
-                    <p>Up to 50% off on selected appliances.</p>
-                    <a href="#" class="btn-slide">View Deals</a>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-slide">
-                <img src="images/hero_clean_1.jpg" alt="Premium Cleaning" class="slide-image" loading="lazy">
-                <div class="slide-content">
-                    <h2>Eco-Friendly Cleaning</h2>
-                    <p>Safe for your family and the planet.</p>
-                    <a href="#" class="btn-slide">Explore</a>
-                </div>
-            </div>
-
-            <!-- Carousel Controls -->
-            <button class="carousel-control prev" id="prevSlide" aria-label="Previous Slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
-            <button class="carousel-control next" id="nextSlide" aria-label="Next Slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
-
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button class="indicator active" data-slide-to="0" aria-label="Go to slide 1"></button>
-                <button class="indicator" data-slide-to="1" aria-label="Go to slide 2"></button>
-                <button class="indicator" data-slide-to="2" aria-label="Go to slide 3"></button>
-            </div>
-
-        </section>
-
-        <!-- BEST SELLERS SECTION -->
-        <section class="best-sellers-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Best Sellers</h2>
-                    <p>Discover our most loved products, chosen by our community for their quality and value.</p>
-                </div>
-
-                <div class="slider-wrapper">
-                    <button class="slider-arrow prev" id="bestSellersPrev" aria-label="Previous Products">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-
-                    <div class="products-track" id="productsTrack">
-
-
-
-
-
-                    </div> <!-- End Track -->
-
-                    <button class="slider-arrow next" id="bestSellersNext" aria-label="Next Products">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- MEMBER DISCOUNT MODAL -->
-        <div class="modal-overlay" id="memberModal">
-            <div class="modal-content">
-                <button class="modal-close" id="closeMemberModal" aria-label="Close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-
-                <h2>Members save 20% on almost everything.</h2>
-                <p>Join our community today and unlock exclusive prices on thousands of premium products.</p>
-
-                <div class="modal-actions">
-                    <button class="btn-modal btn-login">Log In</button>
-                    <button class="btn-modal btn-join">Join Today</button>
-                </div>
-            </div>
+      <!-- HERO CAROUSEL SECTION -->
+      <section class="hero-carousel">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <img
+            src="images/hero_gadget1.jpg"
+            alt="New Arrivals"
+            class="slide-image"
+            loading="lazy"
+          />
+          <div class="slide-content">
+            <h2>New Season Arrivals</h2>
+            <p>Discover the latest electronics and home goods.</p>
+            <a href="#" class="btn-slide">Shop Now</a>
+          </div>
         </div>
 
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img
+            src="images/hero_kitchen_1.jpg"
+            alt="Summer Sale"
+            class="slide-image"
+            loading="lazy"
+          />
+          <div class="slide-content">
+            <h2>Summer Mega Sale</h2>
+            <p>Up to 50% off on selected appliances.</p>
+            <a href="#" class="btn-slide">View Deals</a>
+          </div>
+        </div>
 
-        <!-- MINDFUL LIVING SECTION -->
-        <section class="mindful-living-section">
-            <div class="container">
-                <div class="mindful-grid">
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img
+            src="images/hero_clean_1.jpg"
+            alt="Premium Cleaning"
+            class="slide-image"
+            loading="lazy"
+          />
+          <div class="slide-content">
+            <h2>Eco-Friendly Cleaning</h2>
+            <p>Safe for your family and the planet.</p>
+            <a href="#" class="btn-slide">Explore</a>
+          </div>
+        </div>
 
-                    <!-- LEFT COLUMN -->
-                    <div class="mindful-content">
+        <!-- Carousel Controls -->
+        <button
+          class="carousel-control prev"
+          id="prevSlide"
+          aria-label="Previous Slide"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="carousel-control next"
+          id="nextSlide"
+          aria-label="Next Slide"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
 
-                        <h2 class="mindful-title">Mindful living, made simple</h2>
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button
+            class="indicator active"
+            data-slide-to="0"
+            aria-label="Go to slide 1"
+          ></button>
+          <button
+            class="indicator"
+            data-slide-to="1"
+            aria-label="Go to slide 2"
+          ></button>
+          <button
+            class="indicator"
+            data-slide-to="2"
+            aria-label="Go to slide 3"
+          ></button>
+        </div>
+      </section>
 
-                        <!-- Category 1 -->
-                        <div class="mindful-item">
-                            <div class="item-thumb">
-                                <img src="images/For_The_Bathroom.jpg" alt="Bathroom Products">
-                            </div>
-                            <div class="item-details">
-                                <h3>For The Bathroom</h3>
-                                <p>Safe, clean, eco-friendly formulas and beautifully minimal design.</p>
-                                <a href="#" class="shop-link">Shop Bath & Body <span class="arrow">&rarr;</span></a>
-                            </div>
-                        </div>
+      <!-- BEST SELLERS SECTION -->
+      <section class="best-sellers-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Best Sellers</h2>
+            <p>
+              Discover our most loved products, chosen by our community for
+              their quality and value.
+            </p>
+          </div>
 
-                        <!-- Category 2 -->
-                        <div class="mindful-item">
-                            <div class="item-thumb">
-                                <img src="images/For_The_Home.jpg" alt="Home Cleaning">
-                            </div>
-                            <div class="item-details">
-                                <h3>For The Home</h3>
-                                <p>Reimagined cleaning essentials: powerful, non-toxic formulas in refillable packaging.
-                                </p>
-                                <a href="#" class="shop-link">Shop Cleaning & Laundry <span
-                                        class="arrow">&rarr;</span></a>
-                            </div>
-                        </div>
+          <div class="slider-wrapper">
+            <button
+              class="slider-arrow prev"
+              id="bestSellersPrev"
+              aria-label="Previous Products"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
 
-                        <!-- Category 3 -->
-                        <div class="mindful-item">
-                            <div class="item-thumb">
-                                <img src="images/For_The_Kitchen.jpg" alt="Kitchen Essentials">
-                            </div>
-                            <div class="item-details">
-                                <h3>For The Kitchen</h3>
-                                <p>Simple modern essentials for your kitchen and dining space.</p>
-                                <a href="#" class="shop-link">Shop Kitchen & Food <span class="arrow">&rarr;</span></a>
-                            </div>
-                        </div>
+            <div class="products-track" id="productsTrack"></div>
+            <!-- End Track -->
 
-                    </div>
+            <button
+              class="slider-arrow next"
+              id="bestSellersNext"
+              aria-label="Next Products"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="mindful-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80"
-                            alt="Mindful Kitchen Scene" class="mindful-hero-img" loading="lazy">
-                    </div>
+      <!-- MEMBER DISCOUNT MODAL -->
+      <div class="modal-overlay" id="memberModal">
+        <div class="modal-content">
+          <button class="modal-close" id="closeMemberModal" aria-label="Close">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
 
+          <h2>Members save 20% on almost everything.</h2>
+          <p>
+            Join our community today and unlock exclusive prices on thousands of
+            premium products.
+          </p>
+
+          <div class="modal-actions">
+            <button class="btn-modal btn-login">Log In</button>
+            <button class="btn-modal btn-join">Join Today</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MINDFUL LIVING SECTION -->
+      <section class="mindful-living-section">
+        <div class="container">
+          <div class="mindful-grid">
+            <!-- LEFT COLUMN -->
+            <div class="mindful-content">
+              <h2 class="mindful-title">Mindful living, made simple</h2>
+
+              <!-- Category 1 -->
+              <div class="mindful-item">
+                <div class="item-thumb">
+                  <img
+                    src="images/For_The_Bathroom.jpg"
+                    alt="Bathroom Products"
+                  />
                 </div>
-            </div>
-        </section>
+                <div class="item-details">
+                  <h3>For The Bathroom</h3>
+                  <p>
+                    Safe, clean, eco-friendly formulas and beautifully minimal
+                    design.
+                  </p>
+                  <a href="#" class="shop-link"
+                    >Shop Bath & Body <span class="arrow">&rarr;</span></a
+                  >
+                </div>
+              </div>
 
-        <!-- =========================================
+              <!-- Category 2 -->
+              <div class="mindful-item">
+                <div class="item-thumb">
+                  <img src="images/For_The_Home.jpg" alt="Home Cleaning" />
+                </div>
+                <div class="item-details">
+                  <h3>For The Home</h3>
+                  <p>
+                    Reimagined cleaning essentials: powerful, non-toxic formulas
+                    in refillable packaging.
+                  </p>
+                  <a href="#" class="shop-link"
+                    >Shop Cleaning & Laundry
+                    <span class="arrow">&rarr;</span></a
+                  >
+                </div>
+              </div>
+
+              <!-- Category 3 -->
+              <div class="mindful-item">
+                <div class="item-thumb">
+                  <img
+                    src="images/For_The_Kitchen.jpg"
+                    alt="Kitchen Essentials"
+                  />
+                </div>
+                <div class="item-details">
+                  <h3>For The Kitchen</h3>
+                  <p>
+                    Simple modern essentials for your kitchen and dining space.
+                  </p>
+                  <a href="#" class="shop-link"
+                    >Shop Kitchen & Food <span class="arrow">&rarr;</span></a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="mindful-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80"
+                alt="Mindful Kitchen Scene"
+                class="mindful-hero-img"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================
              STORAGE DISPLAY SECTION (ADDED)
         ========================================== -->
-        <section class="storage-display-section">
-            <div class="container">
-                <!-- Replace 'storage_shelves.png' with the actual filename in your images folder -->
-                <img src="images/homepage-shelve.webp" alt="Storage Display" class="storage-img">
-            </div>
-        </section>
+      <section class="storage-display-section">
+        <div class="container">
+          <!-- Replace 'storage_shelves.png' with the actual filename in your images folder -->
+          <img
+            src="images/homepage-shelve.webp"
+            alt="Storage Display"
+            class="storage-img"
+          />
+        </div>
+      </section>
 
-        <!-- =========================================
+      <!-- =========================================
      PREMIUM STARTER SETS SECTION (7 ITEMS)
 ========================================= -->
-        <section class="premium-sets-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Premium Starter Sets</h2>
-                    <p>Everything you need to get started, paired for perfection and value.</p>
-                </div>
+      <section class="premium-sets-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Premium Starter Sets</h2>
+            <p>
+              Everything you need to get started, paired for perfection and
+              value.
+            </p>
+          </div>
 
-                <div class="slider-wrapper">
-                    <!-- LEFT ARROW -->
-                    <button class="slider-arrow prev" id="bundlePrev" aria-label="Previous Bundle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
+          <div class="slider-wrapper">
+            <!-- LEFT ARROW -->
+            <button
+              class="slider-arrow prev"
+              id="bundlePrev"
+              aria-label="Previous Bundle"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
 
-                    <!-- SCROLL TRACK -->
-                    <div class="products-track" id="bundleTrack">
+            <!-- SCROLL TRACK -->
+            <div class="products-track" id="bundleTrack"></div>
+            <!-- End Track -->
 
+            <!-- RIGHT ARROW -->
+            <button
+              class="slider-arrow next"
+              id="bundleNext"
+              aria-label="Next Bundle"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
 
-
-
-
-                    </div> <!-- End Track -->
-
-                    <!-- RIGHT ARROW -->
-                    <button class="slider-arrow next" id="bundleNext" aria-label="Next Bundle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- =========================================
+      <!-- =========================================
      IMPACT & SUSTAINABILITY SECTION
 ========================================= -->
-        <section class="impact-section">
-            <div class="container">
-                <div class="impact-content">
+      <section class="impact-section">
+        <div class="container">
+          <div class="impact-content">
+            <!-- Section Title -->
+            <h2>Driving change, one order at a time</h2>
 
-                    <!-- Section Title -->
-                    <h2>Driving change, one order at a time</h2>
-
-                    <!-- Grid of 4 Key Points -->
-                    <div class="impact-grid">
-
-                        <!-- 1. Tree Planting -->
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2c5e2e"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2.5c-4 4-7 8.5-7 13a7 7 0 0 0 14 0c0-4.5-3-9-7-13z"></path>
-                                    <path d="M12 22v-8"></path>
-                                </svg>
-                            </div>
-                            <h3>Planting Trees</h3>
-                            <p>We partner with global forests to plant a tree for every order placed. <strong>40,000+
-                                    planted.</strong></p>
-                        </div>
-
-                        <!-- 2. Safe Ingredients -->
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2c5e2e"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                    <path d="M12 8v4"></path>
-                                    <path d="M12 16h.01"></path>
-                                </svg>
-                            </div>
-                            <h3>Safe Ingredients</h3>
-                            <p>Our cleaning and bath products are made with <strong>organic, non-toxic formulas</strong>
-                                safe for your home.</p>
-                        </div>
-
-                        <!-- 3. Carbon Offset -->
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2c5e2e"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M2 12h20"></path>
-                                    <path
-                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3>Carbon Offset</h3>
-                            <p>We calculate the emissions of every shipment and invest in projects to <strong>offset
-                                    100% of carbon.</strong></p>
-                        </div>
-
-                        <!-- 4. Packaging -->
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2c5e2e"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline
-                                        points="16.5 9.4 7.5 4.21 2.5 7.11 2.5 16.89 7.5 19.79 16.5 14.6 21.5 17.5 21.5 7.71 16.5 4.81 11.5 7.71 16.5 12.9">
-                                    </polyline>
-                                    <polyline points="7.5 19.79 7.5 14.6 2.5 11.71"></polyline>
-                                    <polyline points="12.5 17.5 12.5 12.3 16.5 9.4"></polyline>
-                                    <polyline points="7.5 4.21 7.5 9.4"></polyline>
-                                </svg>
-                            </div>
-                            <h3>Less Waste</h3>
-                            <p>Our packaging is biodegradable and designed to use <strong>50% less material</strong>
-                                than traditional retail.</p>
-                        </div>
-
-                    </div>
-
-                    <!-- Learn More Button -->
-                    <div class="impact-cta">
-                        <a href="#" class="btn-impact">Learn More</a>
-                    </div>
-
+            <!-- Grid of 4 Key Points -->
+            <div class="impact-grid">
+              <!-- 1. Tree Planting -->
+              <div class="impact-item">
+                <div class="impact-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2c5e2e"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2.5c-4 4-7 8.5-7 13a7 7 0 0 0 14 0c0-4.5-3-9-7-13z"
+                    ></path>
+                    <path d="M12 22v-8"></path>
+                  </svg>
                 </div>
+                <h3>Planting Trees</h3>
+                <p>
+                  We partner with global forests to plant a tree for every order
+                  placed. <strong>40,000+ planted.</strong>
+                </p>
+              </div>
+
+              <!-- 2. Safe Ingredients -->
+              <div class="impact-item">
+                <div class="impact-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2c5e2e"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                    ></path>
+                    <path d="M12 8v4"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </div>
+                <h3>Safe Ingredients</h3>
+                <p>
+                  Our cleaning and bath products are made with
+                  <strong>organic, non-toxic formulas</strong> safe for your
+                  home.
+                </p>
+              </div>
+
+              <!-- 3. Carbon Offset -->
+              <div class="impact-item">
+                <div class="impact-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2c5e2e"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3>Carbon Offset</h3>
+                <p>
+                  We calculate the emissions of every shipment and invest in
+                  projects to <strong>offset 100% of carbon.</strong>
+                </p>
+              </div>
+
+              <!-- 4. Packaging -->
+              <div class="impact-item">
+                <div class="impact-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2c5e2e"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline
+                      points="16.5 9.4 7.5 4.21 2.5 7.11 2.5 16.89 7.5 19.79 16.5 14.6 21.5 17.5 21.5 7.71 16.5 4.81 11.5 7.71 16.5 12.9"
+                    ></polyline>
+                    <polyline points="7.5 19.79 7.5 14.6 2.5 11.71"></polyline>
+                    <polyline points="12.5 17.5 12.5 12.3 16.5 9.4"></polyline>
+                    <polyline points="7.5 4.21 7.5 9.4"></polyline>
+                  </svg>
+                </div>
+                <h3>Less Waste</h3>
+                <p>
+                  Our packaging is biodegradable and designed to use
+                  <strong>50% less material</strong> than traditional retail.
+                </p>
+              </div>
             </div>
-        </section>
 
-
-        <!-- PROFESSIONAL WORDPLAY SECTION -->
-        <div class="section-wrapper">
-            <section class="wordplay-hero">
-                <div class="hero-content">
-
-                    <h1 class="heavy-title" data-text="BEST BUY">
-                        BEST BUY
-                    </h1>
-
-                    <p class="hero-tagline">THE ULTIMATE SHOPPING EXPERIENCE</p>
-
-                    <div class="hero-cta">
-                        <a href="#" class="btn-heavy">Shop Now</a>
-                    </div>
-
-                </div>
-            </section>
+            <!-- Learn More Button -->
+            <div class="impact-cta">
+              <a href="#" class="btn-impact">Learn More</a>
+            </div>
+          </div>
         </div>
-        <!-- ========================================= -->
+      </section>
 
+      <!-- PROFESSIONAL WORDPLAY SECTION -->
+      <div class="section-wrapper">
+        <section class="wordplay-hero">
+          <div class="hero-content">
+            <h1 class="heavy-title" data-text="BEST BUY">BEST BUY</h1>
 
-        <!-- =========================================
+            <p class="hero-tagline">THE ULTIMATE SHOPPING EXPERIENCE</p>
+
+            <div class="hero-cta">
+              <a href="#" class="btn-heavy">Shop Now</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- ========================================= -->
+
+      <!-- =========================================
              NEWSLETTER & REVIEWS SECTION
         ========================================== -->
-        <section class="connection-section">
-            <div class="container">
-                <div class="connection-grid">
+      <section class="connection-section">
+        <div class="container">
+          <div class="connection-grid">
+            <!-- LEFT SIDE: Newsletter Signup -->
+            <div class="newsletter-box">
+              <h2>Join the Inner Circle</h2>
+              <p>
+                Get 15% off your first order, plus exclusive access to new drops
+                and eco-tips.
+              </p>
 
-                    <!-- LEFT SIDE: Newsletter Signup -->
-                    <div class="newsletter-box">
-                        <h2>Join the Inner Circle</h2>
-                        <p>Get 15% off your first order, plus exclusive access to new drops and eco-tips.</p>
+              <form
+                class="newsletter-form"
+                onsubmit="
+                  event.preventDefault();
+                  alert('Thanks for subscribing!');
+                "
+              >
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  required
+                />
+                <button type="submit" class="btn-newsletter">Subscribe</button>
+              </form>
 
-                        <form class="newsletter-form"
-                            onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-                            <input type="email" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn-newsletter">Subscribe</button>
-                        </form>
-
-                        <p class="privacy-note">We respect your privacy. Unsubscribe at any time.</p>
-                    </div>
-
-                    <!-- RIGHT SIDE: Testimonials (Social Proof) -->
-                    <div class="reviews-box">
-                        <div class="reviews-header">
-                            <h2>Community Love</h2>
-                            <a href="#" class="view-all-link">View all reviews →</a>
-                        </div>
-
-                        <div class="reviews-grid">
-
-                            <!-- Review 1 -->
-                            <div class="review-card">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"Finally, cleaning products that actually smell good and work!
-                                    The bathroom set is a game changer."</p>
-                                <div class="reviewer-info">
-                                    <strong>Sarah J.</strong>
-                                    <span>Verified Buyer</span>
-                                </div>
-                            </div>
-
-                            <!-- Review 2 -->
-                            <div class="review-card">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"Fast shipping and beautiful packaging. I love that I'm not
-                                    adding plastic to the ocean."</p>
-                                <div class="reviewer-info">
-                                    <strong>Mike T.</strong>
-                                    <span>Verified Buyer</span>
-                                </div>
-                            </div>
-
-                            <!-- Review 3 -->
-                            <div class="review-card">
-                                <div class="stars">★★★★★</div>
-                                <p class="review-text">"The bundle deals are unbeatable. I switched my whole laundry
-                                    routine over."</p>
-                                <div class="reviewer-info">
-                                    <strong>Elena R.</strong>
-                                    <span>Verified Buyer</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+              <p class="privacy-note">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </div>
-        </section>
 
+            <!-- RIGHT SIDE: Testimonials (Social Proof) -->
+            <div class="reviews-box">
+              <div class="reviews-header">
+                <h2>Community Love</h2>
+                <a href="#" class="view-all-link">View all reviews →</a>
+              </div>
 
+              <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p class="review-text">
+                    "Finally, cleaning products that actually smell good and
+                    work! The bathroom set is a game changer."
+                  </p>
+                  <div class="reviewer-info">
+                    <strong>Sarah J.</strong>
+                    <span>Verified Buyer</span>
+                  </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p class="review-text">
+                    "Fast shipping and beautiful packaging. I love that I'm not
+                    adding plastic to the ocean."
+                  </p>
+                  <div class="reviewer-info">
+                    <strong>Mike T.</strong>
+                    <span>Verified Buyer</span>
+                  </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p class="review-text">
+                    "The bundle deals are unbeatable. I switched my whole
+                    laundry routine over."
+                  </p>
+                  <div class="reviewer-info">
+                    <strong>Elena R.</strong>
+                    <span>Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- =========================================
          FOOTER SECTION
     ========================================== -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- COLUMN 1: SHOP CATEGORIES -->
+          <div class="footer-col">
+            <h4 class="footer-title">Shop</h4>
+            <ul class="footer-links">
+              <li><a href="#">Gaming</a></li>
+              <li><a href="#">Electronics</a></li>
+              <li><a href="#">Appliances</a></li>
+              <li><a href="#">Bath & Body</a></li>
+              <li><a href="#">Cleaning</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 1: SHOP CATEGORIES -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Shop</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Gaming</a></li>
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Appliances</a></li>
-                        <li><a href="#">Bath & Body</a></li>
-                        <li><a href="#">Cleaning</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 2: COMPANY INFO -->
+          <div class="footer-col">
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Affiliates</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 2: COMPANY INFO -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 3: SUPPORT -->
+          <div class="footer-col">
+            <h4 class="footer-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 3: SUPPORT -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 4: CONTACT & SOCIAL -->
+          <div class="footer-col">
+            <h4 class="footer-title">Stay Connected</h4>
+            <p class="footer-text">
+              Join our community for eco-tips and exclusive offers.
+            </p>
 
-                <!-- COLUMN 4: CONTACT & SOCIAL -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Stay Connected</h4>
-                    <p class="footer-text">Join our community for eco-tips and exclusive offers.</p>
-
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-            </div> <!-- End Grid -->
-
-            <!-- FOOTER BOTTOM (Copyright) -->
-            <div class="footer-bottom">
-                <p>&copy; 2026 Best Buy Premium Goods. All rights reserved.</p>
-                <div class="payment-methods">
-                    <!-- Simple text placeholders for payment icons -->
-                    <span>VISA</span> &bull; <span>Mastercard</span> &bull; <span>Amex</span> &bull; <span>PayPal</span>
-                </div>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  ></path>
+                </svg>
+              </a>
             </div>
+          </div>
         </div>
+        <!-- End Grid -->
+
+        <!-- FOOTER BOTTOM (Copyright) -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Best Buy Premium Goods. All rights reserved.</p>
+          <div class="payment-methods">
+            <!-- Simple text placeholders for payment icons -->
+            <span>VISA</span> &bull; <span>Mastercard</span> &bull;
+            <span>Amex</span> &bull; <span>PayPal</span>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- SHOPPING CART DRAWER -->
     <div class="cart-backdrop" id="cartBackdrop"></div>
 
     <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h2>Your Cart</h2>
 
-        <div class="cart-drawer-header">
-            <h2>Your Cart</h2>
+        <!-- NEW: Clear Cart Button -->
+        <button
+          class="clear-cart-btn"
+          id="clearCartBtn"
+          aria-label="Clear Cart"
+        >
+          Clear Cart
+        </button>
 
-            <!-- NEW: Clear Cart Button -->
-            <button class="clear-cart-btn" id="clearCartBtn" aria-label="Clear Cart">
-                Clear Cart
-            </button>
+        <button
+          class="close-cart-btn"
+          id="closeCartBtn"
+          aria-label="Close Cart"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
 
-            <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
+      <div class="cart-drawer-body">
+        <div class="empty-cart-msg">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ddd"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path
+              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+            ></path>
+          </svg>
+          <p>Your cart is empty.</p>
+          <button class="continue-shopping-btn">Continue Shopping</button>
         </div>
+      </div>
 
-        <div class="cart-drawer-body">
-            <div class="empty-cart-msg">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <p>Your cart is empty.</p>
-                <button class="continue-shopping-btn">Continue Shopping</button>
-            </div>
+      <div class="cart-drawer-footer">
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <span class="total-price">$0.00</span>
         </div>
-
-        <div class="cart-drawer-footer">
-            <div class="cart-total">
-                <span>Subtotal</span>
-                <span class="total-price">$0.00</span>
-            </div>
-            <button class="checkout-btn">Checkout</button>
-        </div>
-
+        <button class="checkout-btn">Checkout</button>
+      </div>
     </aside>
 
     <!-- JAVASCRIPT LINK -->
     <script src="javascript/product.js"></script>
     <script src="javascript/index.js"></script>
-
-</body>
-
+  </body>
 </html>

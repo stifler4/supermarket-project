@@ -321,9 +321,6 @@ function loadProductDetails() {
 
   // 2. Check if ID exists
   if (!idFromUrl) {
-    console.error("Error: No ID found in URL.");
-    const titleElement = document.getElementById("productTitle");
-    if (titleElement) titleElement.textContent = "Error: No product selected.";
     return;
   }
 
@@ -703,5 +700,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initCart(); // Load cart from Local Storage
   setupCartButtons(); // Attach click listeners
   initSearch();
+  updateHeaderAuth();
   // ---------------------
+
+  // AUTH HEADER UPDATE
+  function updateHeaderAuth() {
+    const user = JSON.parse(localStorage.getItem("bbLoggedInUser") || "null");
+    const link = document.getElementById("headerAuthLink");
+    const icon = document.getElementById("accountIconBtn");
+
+    if (user && link) {
+      link.textContent = user.name.split(" ")[0];
+      link.href = "account.html";
+    }
+    if (user && icon) {
+      icon.href = "account.html";
+    }
+  }
 });

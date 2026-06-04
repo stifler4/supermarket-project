@@ -1,534 +1,734 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- META TAGS -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details | Best Buy Premium Goods</title>
 
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS LINK (Using your existing CSS file) -->
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
 
-
-
-</head>
-
-<body>
-
+  <body>
     <!-- =========================================
          HEADER SECTION (Updated with full options)
     ========================================== -->
     <header class="site-header">
-        <div class="header-container">
+      <div class="header-container">
+        <!-- ROW 1: Top Bar -->
+        <div class="header-top">
+          <!-- LEFT SIDE -->
+          <div class="header-left">
+            <!-- HAMBURGER ICON -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
 
-            <!-- ROW 1: Top Bar -->
-            <div class="header-top">
-
-                <!-- LEFT SIDE -->
-                <div class="header-left">
-                    <!-- HAMBURGER ICON -->
-                    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </button>
-
-                    <!-- SEARCH INPUT -->
-                    <div class="search-container">
-                        <input type="text" placeholder="Search products..." class="search-input">
-                        <button class="search-btn-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <a href="#" class="top-link desktop-only-text">Create Kit</a>
-                </div>
-
-                <!-- CENTER SIDE: Logo -->
-                <div class="header-center">
-                    <a href="index.html" class="brand-logo" title="Return to Home">Best Buy</a>
-                </div>
-
-
-                <!-- RIGHT SIDE -->
-                <div class="header-right">
-                    <a href="#" class="account-link top-link" aria-label="Account">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </a>
-
-                    <a href="#" class="login-link top-link">Login</a>
-
-                    <a href="#" class="cart-link top-link" id="cartTrigger">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
-                        <span class="cart-badge" id="cartCountBadge">0</span>
-                    </a>
-
-                    <button class="search-btn-mobile" id="mobileSearchToggle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </button>
-                </div>
+            <!-- SEARCH INPUT -->
+            <div class="search-container">
+              <input
+                type="text"
+                placeholder="Search products..."
+                class="search-input"
+              />
+              <button class="search-btn-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
             </div>
 
-            <!-- ROW 2: DESKTOP NAVIGATION (Updated) -->
-            <nav class="header-nav">
-                <ul class="nav-list">
-                    <!-- HOME: Kept as requested -->
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
+            <a href="#" class="top-link desktop-only-text">Create Kit</a>
+          </div>
 
-                    <!-- GAMING -->
-                    <li class="nav-item">
-                        <a href="gaming.html" class="nav-link">Gaming
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Consoles</a></li>
-                            <li><a href="#" class="dropdown-item">Video Games</a></li>
-                            <li><a href="#" class="dropdown-item">Accessories</a></li>
-                        </ul>
-                    </li>
+          <!-- CENTER SIDE: Logo -->
+          <div class="header-center">
+            <a href="index.html" class="brand-logo" title="Return to Home"
+              >Best Buy</a
+            >
+          </div>
 
-                    <!-- ELECTRONICS (Added dropdown) -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Electronics
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Laptops & PC</a></li>
-                            <li><a href="#" class="dropdown-item">Smartphones</a></li>
-                            <li><a href="#" class="dropdown-item">Headphones & Audio</a></li>
-                            <li><a href="#" class="dropdown-item">Cameras</a></li>
-                        </ul>
-                    </li>
+          <!-- RIGHT SIDE -->
+          <div class="header-right">
+            <a
+              href="account.html"
+              class="account-link top-link"
+              id="accountIconBtn"
+              aria-label="Account"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
 
-                    <!-- APPLIANCES (Added) -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Appliances
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Refrigerators</a></li>
-                            <li><a href="#" class="dropdown-item">Washers & Dryers</a></li>
-                            <li><a href="#" class="dropdown-item">Dishwashers</a></li>
-                        </ul>
-                    </li>
+            <a href="login.html" class="login-link top-link" id="headerAuthLink"
+              >Login</a
+            >
 
-                    <!-- BATH & BODY (Added) -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Bath & Body
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Soaps</a></li>
-                            <li><a href="#" class="dropdown-item">Lotions</a></li>
-                        </ul>
-                    </li>
+            <a href="#" class="cart-link top-link" id="cartTrigger">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="cart-badge" id="cartCountBadge">0</span>
+            </a>
 
-                    <!-- CLEANING (Added) -->
-                    <li class="nav-item">
-                        <a href="cleaning.html" class="nav-link">Cleaning
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">All Purpose</a></li>
-                            <li><a href="#" class="dropdown-item">Laundry</a></li>
-                            <li><a href="#" class="dropdown-item">Kitchen Cleaners</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- FOODSTUFFS (Added) -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Foodstuffs
-                            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Grains & Rice</a></li>
-                            <li><a href="#" class="dropdown-item">Oils</a></li>
-                            <li><a href="#" class="dropdown-item">Snacks</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
+            <button class="search-btn-mobile" id="mobileSearchToggle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
         </div>
+
+        <!-- ROW 2: DESKTOP NAVIGATION (Updated) -->
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <!-- HOME: Kept as requested -->
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+
+            <!-- GAMING -->
+            <li class="nav-item">
+              <a href="gaming.html" class="nav-link"
+                >Gaming
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Consoles</a></li>
+                <li><a href="#" class="dropdown-item">Video Games</a></li>
+                <li><a href="#" class="dropdown-item">Accessories</a></li>
+              </ul>
+            </li>
+
+            <!-- ELECTRONICS (Added dropdown) -->
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Electronics
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Laptops & PC</a></li>
+                <li><a href="#" class="dropdown-item">Smartphones</a></li>
+                <li>
+                  <a href="#" class="dropdown-item">Headphones & Audio</a>
+                </li>
+                <li><a href="#" class="dropdown-item">Cameras</a></li>
+              </ul>
+            </li>
+
+            <!-- APPLIANCES (Added) -->
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Appliances
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Refrigerators</a></li>
+                <li><a href="#" class="dropdown-item">Washers & Dryers</a></li>
+                <li><a href="#" class="dropdown-item">Dishwashers</a></li>
+              </ul>
+            </li>
+
+            <!-- BATH & BODY (Added) -->
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Bath & Body
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Soaps</a></li>
+                <li><a href="#" class="dropdown-item">Lotions</a></li>
+              </ul>
+            </li>
+
+            <!-- CLEANING (Added) -->
+            <li class="nav-item">
+              <a href="cleaning.html" class="nav-link"
+                >Cleaning
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">All Purpose</a></li>
+                <li><a href="#" class="dropdown-item">Laundry</a></li>
+                <li><a href="#" class="dropdown-item">Kitchen Cleaners</a></li>
+              </ul>
+            </li>
+
+            <!-- FOODSTUFFS (Added) -->
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Foodstuffs
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Grains & Rice</a></li>
+                <li><a href="#" class="dropdown-item">Oils</a></li>
+                <li><a href="#" class="dropdown-item">Snacks</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <!-- MOBILE DRAWER (Updated with full options) -->
     <div class="drawer-backdrop" id="backdrop"></div>
     <div class="mobile-drawer" id="mobileDrawer">
-        <!-- Search Bar -->
-        <div class="drawer-search-section">
-            <input type="text" placeholder="Search..." class="drawer-search-input">
-        </div>
-        <!-- Login Button -->
-        <div class="drawer-header">
-            <a href="#" class="drawer-login-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                    <polyline points="10 17 15 12 10 7"></polyline>
-                    <line x1="15" y1="12" x2="3" y2="12"></line>
-                </svg>
-                Login / Sign Up
-            </a>
-        </div>
-        <!-- Mobile Navigation Links -->
-        <ul class="mobile-nav-list">
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Create Kit</a>
-            </li>
+      <!-- Search Bar -->
+      <div class="drawer-search-section">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="drawer-search-input"
+        />
+      </div>
+      <!-- Login Button -->
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Login / Sign Up
+        </a>
+      </div>
+      <!-- Mobile Navigation Links -->
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Create Kit</a>
+        </li>
 
-            <!-- HOME: Kept as requested -->
-            <li class="mobile-nav-item">
-                <a href="index.html" class="mobile-nav-link">Home</a>
-            </li>
+        <!-- HOME: Kept as requested -->
+        <li class="mobile-nav-item">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+        </li>
 
-            <!-- GAMING -->
-            <li class="mobile-nav-item">
-                <a href="gaming.html" class="mobile-nav-link">Gaming</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Gaming Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Consoles</a></li>
-                    <li><a href="#" class="mobile-sublink">Video Games</a></li>
-                    <li><a href="#" class="mobile-sublink">Accessories</a></li>
-                </ul>
-            </li>
+        <!-- GAMING -->
+        <li class="mobile-nav-item">
+          <a href="gaming.html" class="mobile-nav-link">Gaming</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Gaming Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Consoles</a></li>
+            <li><a href="#" class="mobile-sublink">Video Games</a></li>
+            <li><a href="#" class="mobile-sublink">Accessories</a></li>
+          </ul>
+        </li>
 
-            <!-- ELECTRONICS -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Electronics</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Electronics Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Laptops & PC</a></li>
-                    <li><a href="#" class="mobile-sublink">Smartphones</a></li>
-                    <li><a href="#" class="mobile-sublink">Headphones & Audio</a></li>
-                    <li><a href="#" class="mobile-sublink">Cameras</a></li>
-                </ul>
-            </li>
+        <!-- ELECTRONICS -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Electronics</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Electronics Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Laptops & PC</a></li>
+            <li><a href="#" class="mobile-sublink">Smartphones</a></li>
+            <li><a href="#" class="mobile-sublink">Headphones & Audio</a></li>
+            <li><a href="#" class="mobile-sublink">Cameras</a></li>
+          </ul>
+        </li>
 
-            <!-- APPLIANCES -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Appliances</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Appliances Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
-                    <li><a href="#" class="mobile-sublink">Washers & Dryers</a></li>
-                    <li><a href="#" class="mobile-sublink">Dishwashers</a></li>
-                </ul>
-            </li>
+        <!-- APPLIANCES -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Appliances</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Appliances Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Refrigerators</a></li>
+            <li><a href="#" class="mobile-sublink">Washers & Dryers</a></li>
+            <li><a href="#" class="mobile-sublink">Dishwashers</a></li>
+          </ul>
+        </li>
 
-            <!-- BATH & BODY -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Bath & Body</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Bath Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Soaps</a></li>
-                    <li><a href="#" class="mobile-sublink">Lotions</a></li>
-                </ul>
-            </li>
+        <!-- BATH & BODY -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Bath & Body</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Bath Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Soaps</a></li>
+            <li><a href="#" class="mobile-sublink">Lotions</a></li>
+          </ul>
+        </li>
 
-            <!-- CLEANING -->
-            <li class="mobile-nav-item">
-                <a href="cleaning.html" class="mobile-nav-link">Cleaning</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Cleaning Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">All Purpose</a></li>
-                    <li><a href="#" class="mobile-sublink">Laundry</a></li>
-                    <li><a href="#" class="mobile-sublink">Kitchen Cleaners</a></li>
-                </ul>
-            </li>
+        <!-- CLEANING -->
+        <li class="mobile-nav-item">
+          <a href="cleaning.html" class="mobile-nav-link">Cleaning</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Cleaning Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">All Purpose</a></li>
+            <li><a href="#" class="mobile-sublink">Laundry</a></li>
+            <li><a href="#" class="mobile-sublink">Kitchen Cleaners</a></li>
+          </ul>
+        </li>
 
-            <!-- FOODSTUFFS -->
-            <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link">Foodstuffs</a>
-                <button class="submenu-toggle-btn js-submenu-toggle" aria-label="Toggle Food Menu">
-                    <span>▼</span>
-                </button>
-                <ul class="mobile-submenu">
-                    <li><a href="#" class="mobile-sublink">Grains</a></li>
-                    <li><a href="#" class="mobile-sublink">Oils</a></li>
-                    <li><a href="#" class="mobile-sublink">Snacks</a></li>
-                </ul>
-            </li>
-        </ul>
+        <!-- FOODSTUFFS -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Foodstuffs</a>
+          <button
+            class="submenu-toggle-btn js-submenu-toggle"
+            aria-label="Toggle Food Menu"
+          >
+            <span>▼</span>
+          </button>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Grains</a></li>
+            <li><a href="#" class="mobile-sublink">Oils</a></li>
+            <li><a href="#" class="mobile-sublink">Snacks</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-
 
     <!-- =========================================
          MAIN PRODUCT CONTENT
     ========================================== -->
     <main class="main-content" id="app-content">
+      <div class="product-wrapper">
+        <!-- LEFT: IMAGES -->
+        <div class="product-gallery-section">
+          <div class="main-image-frame">
+            <!-- Main Product Image -->
+            <img
+              src="https://via.placeholder.com/600x600?text=Main+Product"
+              id="mainProductImage"
+              alt="Product Image"
+            />
+          </div>
 
-        <div class="product-wrapper">
-
-            <!-- LEFT: IMAGES -->
-            <div class="product-gallery-section">
-                <div class="main-image-frame">
-                    <!-- Main Product Image -->
-                    <img src="https://via.placeholder.com/600x600?text=Main+Product" id="mainProductImage"
-                        alt="Product Image">
-                </div>
-
-                <div class="thumbnail-row">
-                    <img src="https://via.placeholder.com/600x600?text=Main+Product" class="thumb"
-                        onclick="changeImage(this)">
-                    <img src="https://via.placeholder.com/600x600?text=Angle+2" class="thumb"
-                        onclick="changeImage(this)">
-                    <img src="https://via.placeholder.com/600x600?text=Angle+3" class="thumb"
-                        onclick="changeImage(this)">
-                </div>
-            </div>
-
-            <!-- RIGHT: DETAILS -->
-            <div class="product-info-section">
-
-                <!-- Breadcrumbs -->
-                <div class="breadcrumbs">
-                    <a href="index.html">Home</a> &nbsp;/&nbsp;
-                    <a href="#">Cleaning</a> &nbsp;/&nbsp;
-                    <span>Dish Soap</span>
-                </div>
-
-                <h1 id="productTitle" class="product-title">Premium Dish Soap - Lemon</h1>
-                <div id="productPrice" class="product-price"></div>
-
-                <p id="productDesc" class="product-desc">
-                    Our concentrated formula cuts through grease effortlessly. Made with plant-derived ingredients and a
-                    refreshing lemon scent, it's tough on dirt but gentle on your hands.
-                </p>
-
-
-
-                <!-- Add to Cart Actions -->
-                <div class="cart-actions">
-                    <div class="qty-wrapper">
-                        <button class="qty-btn" onclick="adjustQty(-1)">-</button>
-                        <input type="number" value="1" class="qty-input" id="mainQty" min="1">
-                        <button class="qty-btn" onclick="adjustQty(1)">+</button>
-                    </div>
-                    <button class="btn-add-to-cart" id="singleAddBtn">Add to Cart</button>
-                </div>
-
-                <!-- CREATE A KIT SECTION -->
-                <div class="kit-builder">
-                    <div class="kit-header">
-                        <h3>Create a Kit & Save</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Select items to bundle together.</p>
-                    </div>
-
-                    <div class="kit-grid">
-                        <!-- Kit Item 1 -->
-                        <div class="kit-item" onclick="toggleKitItem(this, 5.00)">
-                            <img src="https://via.placeholder.com/200?text=Sponge" alt="Sponge">
-                            <div class="kit-item-name">Loofah Sponge</div>
-                            <div class="kit-item-price">₦</div>
-                        </div>
-
-                        <!-- Kit Item 2 -->
-                        <div class="kit-item" onclick="toggleKitItem(this, 15.00)">
-                            <img src="https://via.placeholder.com/200?text=Tray" alt="Tray">
-                            <div class="kit-item-name">Ceramic Tray</div>
-                            <div class="kit-item-price">₦</div>
-                        </div>
-
-                        <!-- Kit Item 3 -->
-                        <div class="kit-item" onclick="toggleKitItem(this, 8.00)">
-                            <img src="https://via.placeholder.com/200?text=Towel" alt="Towel">
-                            <div class="kit-item-name">Microfiber Cloth</div>
-                            <div class="kit-item-price">₦</div>
-                        </div>
-                    </div>
-
-                    <div class="kit-footer">
-                        <span class="kit-total-label">Kit Total:</span>
-                        <span class="kit-total-price" id="kitTotalDisplay">₦</span>
-                    </div>
-
-                    <button class="btn-add-kit" id="addKitBtn">Add Kit to Cart</button>
-                </div>
-
-            </div>
+          <div class="thumbnail-row">
+            <img
+              src="https://via.placeholder.com/600x600?text=Main+Product"
+              class="thumb"
+              onclick="changeImage(this)"
+            />
+            <img
+              src="https://via.placeholder.com/600x600?text=Angle+2"
+              class="thumb"
+              onclick="changeImage(this)"
+            />
+            <img
+              src="https://via.placeholder.com/600x600?text=Angle+3"
+              class="thumb"
+              onclick="changeImage(this)"
+            />
+          </div>
         </div>
 
+        <!-- RIGHT: DETAILS -->
+        <div class="product-info-section">
+          <!-- Breadcrumbs -->
+          <div class="breadcrumbs">
+            <a href="index.html">Home</a> &nbsp;/&nbsp;
+            <a href="#">Cleaning</a> &nbsp;/&nbsp;
+            <span>Dish Soap</span>
+          </div>
+
+          <h1 id="productTitle" class="product-title">
+            Premium Dish Soap - Lemon
+          </h1>
+          <div id="productPrice" class="product-price"></div>
+
+          <p id="productDesc" class="product-desc">
+            Our concentrated formula cuts through grease effortlessly. Made with
+            plant-derived ingredients and a refreshing lemon scent, it's tough
+            on dirt but gentle on your hands.
+          </p>
+
+          <!-- Add to Cart Actions -->
+          <div class="cart-actions">
+            <div class="qty-wrapper">
+              <button class="qty-btn" onclick="adjustQty(-1)">-</button>
+              <input
+                type="number"
+                value="1"
+                class="qty-input"
+                id="mainQty"
+                min="1"
+              />
+              <button class="qty-btn" onclick="adjustQty(1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" id="singleAddBtn">
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- CREATE A KIT SECTION -->
+          <div class="kit-builder">
+            <div class="kit-header">
+              <h3>Create a Kit & Save</h3>
+              <p style="font-size: 0.9rem; color: #666; margin-top: 5px">
+                Select items to bundle together.
+              </p>
+            </div>
+
+            <div class="kit-grid">
+              <!-- Kit Item 1 -->
+              <div class="kit-item" onclick="toggleKitItem(this, 5.0)">
+                <img
+                  src="https://via.placeholder.com/200?text=Sponge"
+                  alt="Sponge"
+                />
+                <div class="kit-item-name">Loofah Sponge</div>
+                <div class="kit-item-price">₦</div>
+              </div>
+
+              <!-- Kit Item 2 -->
+              <div class="kit-item" onclick="toggleKitItem(this, 15.0)">
+                <img
+                  src="https://via.placeholder.com/200?text=Tray"
+                  alt="Tray"
+                />
+                <div class="kit-item-name">Ceramic Tray</div>
+                <div class="kit-item-price">₦</div>
+              </div>
+
+              <!-- Kit Item 3 -->
+              <div class="kit-item" onclick="toggleKitItem(this, 8.0)">
+                <img
+                  src="https://via.placeholder.com/200?text=Towel"
+                  alt="Towel"
+                />
+                <div class="kit-item-name">Microfiber Cloth</div>
+                <div class="kit-item-price">₦</div>
+              </div>
+            </div>
+
+            <div class="kit-footer">
+              <span class="kit-total-label">Kit Total:</span>
+              <span class="kit-total-price" id="kitTotalDisplay">₦</span>
+            </div>
+
+            <button class="btn-add-kit" id="addKitBtn">Add Kit to Cart</button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- =========================================
          FOOTER SECTION (From Index)
     ========================================== -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- COLUMN 1: SHOP CATEGORIES -->
+          <div class="footer-col">
+            <h4 class="footer-title">Shop</h4>
+            <ul class="footer-links">
+              <li><a href="#">Gaming</a></li>
+              <li><a href="#">Electronics</a></li>
+              <li><a href="#">Appliances</a></li>
+              <li><a href="#">Bath & Body</a></li>
+              <li><a href="#">Cleaning</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 1: SHOP CATEGORIES -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Shop</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Gaming</a></li>
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Appliances</a></li>
-                        <li><a href="#">Bath & Body</a></li>
-                        <li><a href="#">Cleaning</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 2: COMPANY INFO -->
+          <div class="footer-col">
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Affiliates</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 2: COMPANY INFO -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 3: SUPPORT -->
+          <div class="footer-col">
+            <h4 class="footer-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
 
-                <!-- COLUMN 3: SUPPORT -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
+          <!-- COLUMN 4: CONTACT & SOCIAL -->
+          <div class="footer-col">
+            <h4 class="footer-title">Stay Connected</h4>
+            <p class="footer-text">
+              Join our community for eco-tips and exclusive offers.
+            </p>
 
-                <!-- COLUMN 4: CONTACT & SOCIAL -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Stay Connected</h4>
-                    <p class="footer-text">Join our community for eco-tips and exclusive offers.</p>
-
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-            </div> <!-- End Grid -->
-
-            <!-- FOOTER BOTTOM (Copyright) -->
-            <div class="footer-bottom">
-                <p>&copy; 2026 Best Buy Premium Goods. All rights reserved.</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
+          </div>
         </div>
+        <!-- End Grid -->
+
+        <!-- FOOTER BOTTOM (Copyright) -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Best Buy Premium Goods. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- SHOPPING CART DRAWER (Copied from Index - Essential for JS to work) -->
     <div class="cart-backdrop" id="cartBackdrop"></div>
 
     <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h2>Your Cart</h2>
+        <button
+          class="close-cart-btn"
+          id="closeCartBtn"
+          aria-label="Close Cart"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
 
-        <div class="cart-drawer-header">
-            <h2>Your Cart</h2>
-            <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
+      <div class="cart-drawer-body">
+        <div class="empty-cart-msg">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ddd"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path
+              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+            ></path>
+          </svg>
+          <p>Your cart is empty.</p>
+          <button class="continue-shopping-btn">Continue Shopping</button>
         </div>
+      </div>
 
-        <div class="cart-drawer-body">
-            <div class="empty-cart-msg">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <p>Your cart is empty.</p>
-                <button class="continue-shopping-btn">Continue Shopping</button>
-            </div>
+      <div class="cart-drawer-footer">
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <span class="total-price">$0.00</span>
         </div>
-
-        <div class="cart-drawer-footer">
-            <div class="cart-total">
-                <span>Subtotal</span>
-                <span class="total-price">$0.00</span>
-            </div>
-            <button class="checkout-btn">Checkout</button>
-        </div>
-
+        <button class="checkout-btn">Checkout</button>
+      </div>
     </aside>
 
     <!-- JAVASCRIPT LINK -->
     <!-- As requested, keeping name as index.js -->
     <script src="javascript/index.js"></script>
     <script src="javascript/product.js"></script>
-
-</body>
-
+  </body>
 </html>

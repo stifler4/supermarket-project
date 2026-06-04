@@ -1,0 +1,861 @@
+/* =========================================
+   AUTH PAGES (login.html + account.html)
+   auth.css
+========================================= */
+
+/* ---- LOGIN PAGE BODY ---- */
+.auth-page-body {
+  background: #f7f5f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-header {
+  padding: 20px 40px;
+  background: #fff;
+  border-bottom: 1px solid #f0ede8;
+  display: flex;
+  align-items: center;
+}
+
+/* ---- MAIN LAYOUT ---- */
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 65px);
+}
+
+/* ---- AUTH CARD (FORM SIDE) ---- */
+.auth-card {
+  flex: 0 0 480px;
+  background: #fff;
+  padding: 48px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- BRAND SECTION ---- */
+.auth-brand {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-brand-icon {
+  width: 64px;
+  height: 64px;
+  background: #faf6ef;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border: 2px solid #f0e8d5;
+}
+
+.auth-brand-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+}
+
+.auth-brand-sub {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  color: #888;
+  margin: 0;
+}
+
+/* ---- TABS ---- */
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 28px;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #aaa;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.auth-tab.active {
+  color: #c5a059;
+  border-bottom-color: #c5a059;
+}
+
+/* ---- FORM SECTIONS ---- */
+.auth-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form-section.hidden {
+  display: none;
+}
+
+/* ---- FIELDS ---- */
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.auth-field label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.auth-field input {
+  padding: 12px 16px;
+  border: 1.5px solid #e8e4de;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background: #fafaf9;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.auth-field input:focus {
+  border-color: #c5a059;
+  background: #fff;
+}
+
+/* ---- PASSWORD TOGGLE ---- */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 46px;
+}
+
+.toggle-pw {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.toggle-pw:hover {
+  color: #c5a059;
+}
+
+/* ---- SUBMIT BUTTON ---- */
+.btn-auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    transform 0.1s;
+  margin-top: 4px;
+}
+
+.btn-auth-submit:hover {
+  background: #c5a059;
+}
+
+.btn-auth-submit:active {
+  transform: scale(0.98);
+}
+
+.btn-logout {
+  background: #f5f5f5 !important;
+  color: #1a1a1a !important;
+}
+
+.btn-logout:hover {
+  background: #e74c3c !important;
+  color: #fff !important;
+}
+
+/* ---- SWITCH TEXT ---- */
+.auth-switch-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  color: #888;
+  text-align: center;
+  margin: 0;
+}
+
+.auth-switch-text a {
+  color: #c5a059;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ---- FEEDBACK ---- */
+.auth-feedback {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  padding: 11px 14px;
+  border-radius: 8px;
+  display: none;
+}
+
+.auth-feedback.error {
+  display: block;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.auth-feedback.success {
+  display: block;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+/* ---- DECORATIVE SIDE PANEL ---- */
+.auth-deco {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 60%, #3a2e1e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-deco::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    rgba(197, 160, 89, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.auth-deco::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(
+    circle,
+    rgba(197, 160, 89, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.auth-deco-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+}
+
+.auth-deco-inner h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+
+.auth-deco-inner h2::before {
+  content: '"';
+  color: #c5a059;
+  font-size: 2.5rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 4px;
+}
+
+.auth-deco-inner p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.auth-deco-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.deco-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #c5a059;
+}
+
+.stat-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   ACCOUNT PAGE
+========================================= */
+
+.account-page {
+  background: #f7f5f2;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* GUARD (not logged in) */
+.account-guard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.account-guard.hidden {
+  display: none;
+}
+.account-content.hidden {
+  display: none;
+}
+
+.guard-inner {
+  text-align: center;
+  padding: 60px 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.guard-inner h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.guard-inner p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.guard-btn {
+  width: auto;
+  padding: 13px 32px;
+  text-decoration: none;
+}
+
+/* PROFILE BANNER */
+.profile-banner {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.profile-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #c5a059, #e0c07a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.profile-banner-info {
+  flex: 1;
+}
+
+.profile-banner-info h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.profile-banner-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 8px;
+}
+
+.member-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  background: rgba(197, 160, 89, 0.2);
+  color: #c5a059;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-logout-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: auto;
+}
+
+.btn-logout-header:hover {
+  background: rgba(231, 76, 60, 0.6);
+  border-color: transparent;
+}
+
+/* ACCOUNT GRID */
+.account-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* SIDEBAR */
+.account-sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+}
+
+.account-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.account-nav-link:hover {
+  background: #faf6ef;
+  color: #1a1a1a;
+}
+
+.account-nav-link.active {
+  color: #c5a059;
+  background: #faf6ef;
+  border-left-color: #c5a059;
+}
+
+/* SECTIONS */
+.account-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.account-section.hidden {
+  display: none;
+}
+
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.subsection-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 28px 0 16px;
+}
+
+/* OVERVIEW CARDS */
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.overview-card {
+  background: #faf6ef;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #f0e8d5;
+}
+
+.ov-icon {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ov-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ov-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.ov-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ORDER CARDS */
+.order-card {
+  border: 1px solid #f0ede8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.order-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #faf9f7;
+  border-bottom: 1px solid #f0ede8;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.order-date {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.order-total-tag {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.order-status {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.order-items-list {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.order-item-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #f5f5f5;
+  border: 1px solid #eee;
+}
+
+.order-item-name {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.order-item-qty {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.order-item-price {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* EMPTY HISTORY */
+.empty-history {
+  text-align: center;
+  padding: 48px 24px;
+  color: #bbb;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+}
+
+.empty-history svg {
+  margin-bottom: 16px;
+}
+
+/* PROFILE INFO CARD */
+.profile-info-card {
+  border: 1px solid #f0ede8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.profile-info-row {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.profile-info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  flex: 0 0 160px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.info-value {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
+.status-badge {
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.active-status {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+/* CHANGE PASSWORD BOX */
+.change-pw-box {
+  background: #faf9f7;
+  border: 1px solid #f0ede8;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.change-pw-box h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 20px;
+}
+
+.btn-change-pw {
+  max-width: 200px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .auth-card {
+    flex: 0 0 100%;
+    padding: 40px 28px;
+  }
+
+  .auth-deco {
+    display: none;
+  }
+
+  .account-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-sidebar {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .account-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .account-nav-link {
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .account-nav-link.active {
+    border-left: none;
+    border-bottom-color: #c5a059;
+  }
+
+  .overview-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-banner-inner {
+    gap: 16px;
+  }
+
+  .btn-logout-header {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .auth-card {
+    padding: 28px 20px;
+  }
+  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+  .info-label {
+    flex: 0 0 120px;
+  }
+}
