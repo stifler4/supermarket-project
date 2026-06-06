@@ -38,6 +38,76 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("infoMemberSince").textContent =
     fullUser?.memberSince || "N/A";
 
+  // --- WALLET LOGIC ---
+  const walletKey = "bbWallet_" + loggedInUser.email;
+
+  function getWalletBalance() {
+    return parseFloat(localStorage.getItem(walletKey) || "0");
+  }
+
+  function saveWalletBalance(amount) {
+    localStorage.setItem(walletKey, amount.toString());
+  }
+
+  function renderWalletBalance() {
+    const bal = getWalletBalance();
+    const balEl = document.getElementById("walletBalance");
+    if (balEl) balEl.textContent = "₦" + bal.toLocaleString();
+  }
+
+  renderWalletBalance();
+
+  // Deposit logic
+  const depositBtn = document.getElementById("depositBtn");
+  const depositInput = document.getElementById("depositAmount");
+  const depositFeedback = document.getElementById("depositFeedback");
+  const presetBtns = document.querySelectorAll(".preset-btn");
+
+  // Preset amount buttons
+  presetBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      presetBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      depositInput.value = btn.getAttribute("data-amount");
+      if (depositFeedback) {
+        depositFeedback.textContent = "";
+        depositFeedback.className = "auth-feedback";
+      }
+    });
+  });
+
+  if (depositBtn) {
+    depositBtn.addEventListener("click", () => {
+      const amount = parseFloat(depositInput.value);
+
+      if (!amount || isNaN(amount)) {
+        depositFeedback.textContent = "Please enter an amount.";
+        depositFeedback.className = "auth-feedback error";
+        return;
+      }
+      if (amount < 1000) {
+        depositFeedback.textContent = "Minimum deposit is ₦1,000.";
+        depositFeedback.className = "auth-feedback error";
+        return;
+      }
+      if (amount > 500000) {
+        depositFeedback.textContent = "Maximum deposit is ₦500,000.";
+        depositFeedback.className = "auth-feedback error";
+        return;
+      }
+
+      const newBalance = getWalletBalance() + amount;
+      saveWalletBalance(newBalance);
+      renderWalletBalance();
+
+      depositFeedback.textContent =
+        "₦" + amount.toLocaleString() + " added successfully!";
+      depositFeedback.className = "auth-feedback success";
+      depositInput.value = "";
+      presetBtns.forEach((b) => b.classList.remove("active"));
+    });
+  }
+
   // --- LOAD PURCHASE HISTORY ---
   const storageKey = "bbOrders_" + loggedInUser.email;
   const orderHistory = JSON.parse(localStorage.getItem(storageKey) || "[]");
@@ -66,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
                     <p>No orders yet. Start shopping!</p>
-                    <a href="index.html" style="color:#C5A059; font-weight:600; text-decoration:none;">Browse Products →</a>
+                    <a href="index.html" style="color:#C5A059; font-weight:600; text-decoration:none;">Browse Products &rarr;</a>
                 </div>
             `;
     }
@@ -81,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
                          onerror="this.style.background='#f0f0f0'; this.src=''">
                     <span class="order-item-name">${item.name}</span>
                     <span class="order-item-qty">x${item.quantity}</span>
-                    <span class="order-item-price">₦${(item.price * item.quantity).toLocaleString()}</span>
+                    <span class="order-item-price">&#8358;${(item.price * item.quantity).toLocaleString()}</span>
                 </div>
             `,
           )
@@ -91,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="order-card">
                     <div class="order-card-header">
                         <span class="order-date">${order.date}</span>
-                        <span class="order-total-tag">₦${order.total.toLocaleString()}</span>
+                        <span class="order-total-tag">&#8358;${order.total.toLocaleString()}</span>
                         <span class="order-status">Completed</span>
                     </div>
                     <div class="order-items-list">
@@ -116,6 +186,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- SIDEBAR NAVIGATION ---
   const navLinks = document.querySelectorAll(".account-nav-link");
   const sections = document.querySelectorAll(".account-section");
+
+  // Check if URL has #wallet hash to auto-open wallet tab
+  if (window.location.hash === "#wallet") {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    sections.forEach((s) => s.classList.add("hidden"));
+    const walletLink = document.querySelector('[data-section="wallet"]');
+    const walletSection = document.getElementById("section-wallet");
+    if (walletLink) walletLink.classList.add("active");
+    if (walletSection) walletSection.classList.remove("hidden");
+  }
 
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -179,31 +259,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-// =========================================
-// SAVE ORDER TO HISTORY (call on checkout)
-// =========================================
-function saveOrderToHistory(cartItems, total) {
-  const loggedInUser = JSON.parse(
-    localStorage.getItem("bbLoggedInUser") || "null",
-  );
-  if (!loggedInUser) return;
-
-  const storageKey = "bbOrders_" + loggedInUser.email;
-  const orderHistory = JSON.parse(localStorage.getItem(storageKey) || "[]");
-
-  const newOrder = {
-    date: new Date().toLocaleDateString("en-GB", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    }),
-    items: cartItems,
-    total: total,
-  };
-
-  orderHistory.push(newOrder);
-  localStorage.setItem(storageKey, JSON.stringify(orderHistory));
-}

@@ -608,6 +608,26 @@ function setupCartButtons() {
       cartBackdrop.classList.remove("active"); // Fixed
     });
   }
+
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+      const loggedInUser = JSON.parse(
+        localStorage.getItem("bbLoggedInUser") || "null",
+      );
+
+      if (!loggedInUser) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      if (cart.length === 0) {
+        return;
+      }
+
+      window.location.href = "checkout.html";
+    });
+  }
 }
 
 // =========================================
